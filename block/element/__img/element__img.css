@@ -1,0 +1,6 @@
+.element__img {
+      height: 282px;
+      object-fit: cover;
+      transition: all .4s ease;
+      display: block;
+}

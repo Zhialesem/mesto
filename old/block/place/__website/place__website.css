@@ -1,0 +1,15 @@
+.place__website {
+      margin: 0;
+      align-self: end;
+      display: flex;
+      flex-direction: column;
+}
+
+@media (max-width: 768px) {
+      .place__website {
+            /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+            font-size: calc((100vw - 320px)/(768 - 320) * (42 - 32) + 32px);
+            --padding-side: calc((100vw - 320px) / (768 - 320) * (0 - 16) + 16px);
+            padding: 0 var(--padding-side) 0;
+      }
+}

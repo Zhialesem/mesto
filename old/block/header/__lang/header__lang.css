@@ -1,0 +1,10 @@
+.header__lang {
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    gap: 18px;
+    align-items: end;
+    list-style: none;
+    margin: 0;
+    padding-bottom: 5px;
+  }
+

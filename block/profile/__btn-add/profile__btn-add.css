@@ -1,0 +1,27 @@
+.profile__btn-add {
+    padding: 0;
+    margin: 0;
+    background: transparent url(../../../images/Profile/add-img.svg) 50% no-repeat;
+    background-size: 22px;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    height: 50px;
+    margin-left: auto;
+    outline: none;
+    transition: opacity .2s linear;
+    width: 150px;
+    cursor: pointer;
+    transition: opacity .3s linear;
+}
+
+.profile__btn-add:hover {
+    opacity: .6;
+}
+
+@media (max-width: 618px) {
+    .profile__btn-add {
+        background-size: 16px;
+        margin: auto 0;
+        width: 100%;
+    }
+}

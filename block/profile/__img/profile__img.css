@@ -1,0 +1,16 @@
+.profile__img{
+box-sizing: border-box;
+display: block;
+    border-radius: 050%;
+    max-width: 120px;
+   aspect-ratio: 1 / 1;
+    margin: 0;
+    overflow: hidden;
+}
+
+@media (max-width: var(--breakpoint)) {
+    .profile__img {
+        /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+        font-size: calc((100vw - 320px) / (1280 - 320)*(42 - 27) + 27px);
+    }
+}

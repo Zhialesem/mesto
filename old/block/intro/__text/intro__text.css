@@ -1,0 +1,30 @@
+.intro__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.63;
+  max-width: 690px;
+  padding-top: 40px;
+  margin: 0;
+}
+
+/* @media (max-width: 1280px) {
+    .intro__text {
+        /* font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);
+        max-width: calc((100vw - 1024px) / (1280 - 1024)*(148 - 48) + 48px);
+      }
+    }*/
+
+@media (max-width: 1024px) {
+  .intro__text {
+    /* font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+    max-width: calc((100vw - 768px) / (1024 - 768)*(690 - 720) + 720px);
+  }
+}
+
+@media (max-width: 768px) {
+  .intro__text {
+    /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+    max-width: calc((100vw - 320px) / (768 - 320)*(720 - 288) + 288px);
+  }
+}

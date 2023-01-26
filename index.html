@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+  <!--,без maximum-scale=1.0, minimum-scale=1.0" в devtools странно себя ведет-->
+  <link rel="icon" type="image/svg" href="./images/favicon.ico">
+  <link rel="stylesheet" href="./pages/index.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="ПР4 Жидков А.В. на Яндекс.Практикуме">
+  <meta name="author" content="Александр Жидков">
+  <meta name="keywords" content="Красивые места">
+  <meta name="robots" content="index, follow">
+</head>
+
+
+<body class="page">
+
+
+
+  <header class="header">
+    <img class="header__logo" src="./images/header/header_logo.svg" alt="mesto">
+  </header>
+
+  <main>
+    <section class="profile">
+
+      <img class="profile__img" src="./images/Profile/Cousteau.svg" alt="Фото Жак-Ив Кусто">
+      <div class="profile__title">
+        <div class="profile__info">
+          <h1 class="profile__name">Жак-Ив&nbsp;Кусто</h1>
+           <button class="profile__btn-edit" type="button" title="Редактировать профиль"></button>
+       
+        </div>
+         <p class="profile__explanation">Исследователь океана</p> 
+      </div>
+
+      <button class="profile__btn-add" type="button" title="Добавить фотографию"></button>
+    </section>
+
+    <section class="elements">
+
+      <figure class="element">
+        <img class="element__img" src="./images/elements/karachaevsk.png" alt="Фото старой крепости">
+        <figcaption class="element__title">
+          <h2 class="element__caption">Карачаевск</h2>
+          <button class="element__btn-like" type="button" title="лайк"></button>
+        </figcaption>
+      </figure>
+
+      <figure class="element">
+        <img class="element__img" src="./images/elements/elbrus.png" alt="Гора Эльбрус">
+        <figcaption class="element__title">
+          <h2 class="element__caption">Гора Эльбрус</h2>
+          <button class="element__btn-like" type="button" title="лайк"></button>
+        </figcaption>
+      </figure>
+
+      <figure class="element">
+        <img class="element__img" src="./images/elements/dombay.svg" alt="Фото горы">
+        <figcaption class="element__title">
+          <h2 class="element__caption">Домбай</h2>
+          <button class="element__btn-like" type="button" title="лайк"></button>
+        </figcaption>
+      </figure>
+
+      <figure class="element">
+        <img class="element__img" src="./images/elements/elbrus.png" alt="Гора Эльбрус">
+        <figcaption class="element__title">
+          <h2 class="element__caption">Гора Эльбрус</h2>
+          <button class="element__btn-like" type="button" title="лайк"></button>
+        </figcaption>
+      </figure>
+
+      <figure class="element">
+        <img class="element__img" src="./images/elements/dombay.svg" alt="Фото горы">
+        <figcaption class="element__title">
+          <h2 class="element__caption">Домбай</h2>
+          <button class="element__btn-like" type="button" title="лайк"></button>
+        </figcaption>
+      </figure>
+
+      <figure class="element">
+        <img class="element__img" src="./images/elements/karachaevsk.png" alt="Фото старой крепости">
+        <figcaption class="element__title">
+          <h2 class="element__caption">Карачаево-Черкессия</h2>
+          <button class="element__btn-like" type="button" title="лайк"></button>
+        </figcaption>
+      </figure>
+    </section>
+
+    <footer class="footer">
+            <a href="mailto:zhialesem@gmail.com" class="footer__mail">
+        <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
+      </a>
+    </footer>
+
+</body>
+</html>

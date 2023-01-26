@@ -1,0 +1,7 @@
+.profile__title {
+    padding: 0 0 0 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-self: center;
+}

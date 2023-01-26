@@ -1,0 +1,22 @@
+.header {
+  padding: 28px 48px 0;
+  max-width: 1184px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+    padding: 28px calc((100vw - 768px) / (1024 - 768)*(48 - 24) + 24px) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+    padding: calc((100vw - 320px) / (768 - 320)*(28 - 16) + 16px) calc((100vw - 320px) / (768 - 320)*(24 - 16) + 16px) 0;
+  }
+}

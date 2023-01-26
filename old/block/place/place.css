@@ -1,0 +1,44 @@
+.place {
+  display: grid;
+  gap: 48px 40px;
+  grid-template-columns: minmax(min-content, 460px) minmax(min-content, 484px);
+  margin: 0 auto;
+  padding: 0;
+  max-width: 984px;
+}
+
+.place:first-child {
+  padding-top: 0;
+}
+
+@media (max-width: 1280px) {
+  .place {
+    /* font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+    gap: 48px calc((100vw - 1024px) / (1280 - 1024)*(40 - 32) + 32px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .place {
+    /* font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+    grid-template-columns: minmax(min-content, 440px) minmax(min-content, 456px);
+    gap: 48px calc((100vw - 768px) / (1024 - 768)*(32 - 28) + 28px);
+    }
+}
+
+@media (max-width: 768px) {
+  .place {
+    /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+    grid-template-columns: minmax(min-content, 340px) minmax(min-content, 352px);
+    gap: 48px 28px;
+    /*gap: calc((100vw - 320px) / (768 - 320)*(48 - 32) + 32px);
+    /*calc((100vw - 320px) / (768 - 320)*(48 - 12) + 12px)*/
+   }
+}
+
+@media (max-width: 540px) {
+  .place {
+    grid-template-columns: minmax(min-content, max-content);
+    gap: 32px;
+  }
+}

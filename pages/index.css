@@ -1,0 +1,37 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/fonts.css);
+@import url(../block/page/page.css);
+
+@import url(../block/header/header.css);
+@import url(../block/header/__logo/header__logo.css);
+
+@import url(../block/profile/profile.css);
+@import url(../block/profile/__btn-add/profile__btn-add.css);
+@import url(../block/profile/__img-add/profile__img-add.css);
+@import url(../block/profile/__title/profile__title.css);
+@import url(../block/profile/__btn-edit/profile__btn-edit.css);
+@import url(../block/profile/__edit-img/profile__edit-img.css);
+@import url(../block/profile/__explanation/profile__explanation.css);
+@import url(../block/profile/__img/profile__img.css);
+@import url(../block/profile/__info/profile__info.css);
+@import url(../block/profile/__name/profile__name.css);
+
+@import url(../block/elements/elements.css);
+@import url(../block/element/element.css);
+@import url(../block/element/__caption/element__caption.css);
+@import url(../block/element/__img/element__img.css);
+@import url(../block/element/__title/element__title.css);
+@import url(../block/element/__btn-like/element__btn-like.css);
+
+
+
+
+@import url(../block/footer/__copyright/footer__copyright.css);
+@import url(../block/footer/__mail/footer__mail.css);
+@import url(../block/footer/footer.css);
+
+
+
+/* {
+    outline: 1px dashed red;
+}

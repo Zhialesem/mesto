@@ -1,0 +1,34 @@
+.place__title {
+    margin: 0;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 72px;
+    line-height: 106%;
+}
+
+/*
+     @media (max-width: 1280px) {
+    .place__title {
+       font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);
+      padding: 0 0 calc((100vw - 1024px) / (1280 - 1024)*(148 - 48) + 48px);
+      }
+    }
+    */
+
+@media (max-width: 1024px) {
+    .place__title {
+        /* font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+        font-size: calc((100vw - 768px) / (1024 - 768)*(72 - 42) + 42px);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .place__title {
+        /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+        font-size: calc((100vw - 320px)/(768 - 320) * (42 - 32) + 32px);
+        --padding-side: calc((100vw - 320px) / (768 - 320) * (0 - 16) + 16px);
+        padding: 0 var(--padding-side) 0;
+        max-width: 328px;
+    }
+}

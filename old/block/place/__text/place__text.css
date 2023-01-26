@@ -1,0 +1,11 @@
+.place__text {
+    display: grid;
+    row-gap: 26px;
+    grid-template-rows: min-content;
+}
+
+@media (max-width: 768px) {
+    .place__text {
+        row-gap: 25px;
+    }
+}

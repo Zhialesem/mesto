@@ -1,0 +1,23 @@
+.profile__btn-edit {
+    padding: 0 0 0 18px;
+    background-image: url(../../../images/Profile/edit-img.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+    transition: opacity .3s linear;
+}
+
+.profile__btn-edit:hover {
+    opacity: .6;
+}
+
+@media (max-width: 1280px) {
+.profile__btn-edit {
+        /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+    height: calc((100vw - 320px) / (1280 - 320)*(24 - 18) + 18px);
+    }
+}
