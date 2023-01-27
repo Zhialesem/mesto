@@ -3,13 +3,12 @@
    padding: 0 0 41px;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 966px) {
    .header__logo {
       /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
-      padding-left: calc((100vw - 320px) / (880 - 320)*(0 - (27-19)) + 8px);
-      padding-bottom: calc((100vw - 320px) / (880 - 320)*(41 - 31.6) + 31.6px);
-      width: calc((100vw - 320px) / (880 - 320)*(142 - 103.74) + 103.74px);
-      height: calc((100vw - 320px) / (880 - 320)*(33 - 24.4) + 24.4px);
+      padding-left: calc((100vw - 320px) / (966 - 320)*(0 - 43) + 43px);
+      padding-bottom: calc((100vw - 320px) / (918 - 320)*(41 - 31.6) + 31.6px);
+      width: calc((100vw - 320px) / (918 - 320)*(142 - 103.74) + 103.74px);
+      height: calc((100vw - 320px) / (918 - 320)*(33 - 24.4) + 24.4px);
    }
 }
-

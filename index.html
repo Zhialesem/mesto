@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>Mesto</title>
   <!--,без maximum-scale=1.0, minimum-scale=1.0" в devtools странно себя ведет-->
   <link rel="icon" type="image/svg" href="./images/favicon.ico">
@@ -15,26 +15,23 @@
   <meta name="robots" content="index, follow">
 </head>
 
-
 <body class="page">
-
-
 
   <header class="header">
     <img class="header__logo" src="./images/header/header_logo.svg" alt="mesto">
   </header>
 
-  <main>
+  <main class="container">
     <section class="profile">
 
       <img class="profile__img" src="./images/Profile/Cousteau.svg" alt="Фото Жак-Ив Кусто">
       <div class="profile__title">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив&nbsp;Кусто</h1>
-           <button class="profile__btn-edit" type="button" title="Редактировать профиль"></button>
-       
+          <button class="profile__btn-edit" type="button" title="Редактировать профиль"></button>
+
         </div>
-         <p class="profile__explanation">Исследователь океана</p> 
+        <p class="profile__explanation">Исследователь океана</p>
       </div>
 
       <button class="profile__btn-add" type="button" title="Добавить фотографию"></button>
@@ -90,12 +87,29 @@
         </figcaption>
       </figure>
     </section>
-
+</main>
     <footer class="footer">
-            <a href="mailto:zhialesem@gmail.com" class="footer__mail">
+      <a href="mailto:zhialesem@gmail.com" class="footer__mail">
         <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
       </a>
     </footer>
 
+    <section class="popup popup_opened" id="popup-edit-profile">
+      <div class="popup__container"><button type="button" class="popup__btn-close"></button>
+        <form class="popup__form" action="#" method="post" novalidate="">
+          <p class="popup__title">Редактировать профиль</p>
+          <label for="name" class="popup__label">
+            <input name="name" id="name" class="popup__input">
+          </label>
+          <label for="position" class="popup__label"><input name="position" id="position" class="popup__input"
+              placeholder="Укажите профессию" minlength="2" maxlength="200" required="">
+            <p class="popup__error" id="position-error"></p>
+          </label>
+          <button type="submit" class="popup__button-save popup__button-save_disabled" disabled="">Сохранить</button>
+        </form>
+      </div>
+    </section>
+  <script src="script.js"></script>
 </body>
+
 </html>

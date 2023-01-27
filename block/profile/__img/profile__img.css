@@ -1,9 +1,9 @@
-.profile__img{
-box-sizing: border-box;
-display: block;
+.profile__img {
+    box-sizing: border-box;
+    display: block;
     border-radius: 050%;
     max-width: 120px;
-   aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 1;
     margin: 0;
     overflow: hidden;
 }

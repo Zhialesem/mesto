@@ -16,8 +16,8 @@
 }
 
 @media (max-width: 1280px) {
-.profile__btn-edit {
+    .profile__btn-edit {
         /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
-    height: calc((100vw - 320px) / (1280 - 320)*(24 - 18) + 18px);
+        height: calc((100vw - 320px) / (1280 - 320)*(24 - 18) + 18px);
     }
 }

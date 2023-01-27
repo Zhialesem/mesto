@@ -11,12 +11,12 @@
     .profile__explanation {
         /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
         font-size: calc((100vw - 320px) / (1280 - 320)*(18 - 14) + 14px);
-        padding-left: 25px;
     }
 }
 
 @media (max-width: 618px) {
     .profile__explanation {
         padding-bottom: 36px;
+        padding-left: 25px;
     }
 }
