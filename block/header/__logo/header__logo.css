@@ -1,6 +1,7 @@
 .header__logo {
    margin: 0;
    padding: 0 0 41px;
+   transition: all;
 }
 
 @media (max-width: 966px) {
@@ -11,4 +12,8 @@
       width: calc((100vw - 320px) / (918 - 320)*(142 - 103.74) + 103.74px);
       height: calc((100vw - 320px) / (918 - 320)*(33 - 24.4) + 24.4px);
    }
+}
+
+.header__logo:hover {
+   background-color: black .3s;
 }
