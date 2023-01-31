@@ -7,7 +7,7 @@
    flex-wrap: wrap;
 }
 
-@media (max-width: 618px) {
+@media (max-width: 780px) {
    .profile {
       flex-direction: column;
    }

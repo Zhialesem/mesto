@@ -1,10 +1,1 @@
-.page {
-
-}
-
-@media (max-width: 880px) {
-  .page {
-    /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
-    padding-top: calc((100vw - 320px) / (880 - 320)*(45 - 28) + 28px);
-   }
-}
+.page {}

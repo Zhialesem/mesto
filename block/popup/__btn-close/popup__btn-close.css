@@ -1,11 +1,22 @@
 .popup__btn-close {
     background-color: transparent;
     background-image: url(../../../images/popup/icon-close.svg);
+    background-repeat: no-repeat;
     border: none;
     position: absolute;
-     height: 32px;
+    height: 32px;
     width: 32px;
     right: -40px;
-        top: -40px;
-        transition: all .4s ease-in-out;
+    top: -40px;
+    transition: all .4s ease-in-out;
+}
+
+@media (max-width: 1280px) {
+    .popup__btn-close {
+        /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+        right: calc((100vw - 320px) / (1280 - 320) * (-40 - 0) + 0px);
+        height: calc((100vw - 320px) / (1280 - 320) * (32 - 20) + 20px);
+        width: calc((100vw - 320px) / (1280 - 320) * (32 - 20) + 20px);
+        background-size: calc((100vw - 320px) / (1280 - 320) * (32 - 20) + 20px);
+    }
 }

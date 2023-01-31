@@ -7,3 +7,10 @@
   grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
   justify-content: center;
 }
+
+@media (max-width: 1280px) {
+  .elements {
+    /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+    padding-top: calc((100vw - 320px) / (1280 - 320) * (50 - 36) + 36px);
+  }
+}

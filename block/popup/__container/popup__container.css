@@ -7,6 +7,15 @@
     max-width: 430px;
     min-height: 200px;
     padding: 34px 36px 37px;
-    position: relative;
     width: 100%;
+    position: fixed;
+    top: 190px;
+}
+
+@media (max-width: 1280px) {
+    .popup__container {
+        /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+        max-width: calc((100vw - 320px) / (1280 - 320) * (430 - 282) + 282px);
+        top: calc((100vw - 320px) / (1280 - 320) * (190 - 110) + 110px);
+    }
 }

@@ -1,7 +1,8 @@
 .popup__btn-save {
+    margin: 48px 0 0 0;
+    padding: 0;
     max-width: 358px;
     height: 50px;
-    margin-top: 18px;
     box-sizing: border-box;
     width: 100%;
     background-color: rgb(0 0 0);
@@ -10,4 +11,10 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
+    cursor: pointer;
+    transition: opacity .3s linear;
+}
+
+.profile__btn-add:hover {
+    opacity: .8;
 }

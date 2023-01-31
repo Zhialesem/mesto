@@ -1,9 +1,16 @@
-.popup__title{
-font-size: 24px;
+.popup__title {
+    font-size: 24px;
     font-weight: 900;
     line-height: 29px;
     margin: 0 auto;
     max-width: 330px;
     padding: 0 0 54px;
     color: #000;
+}
+
+@media (max-width: 1280px) {
+    .popup__title {
+        /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+        font-size: calc((100vw - 320px) / (1280 - 320) * (24 - 18) + 18px);
+    }
 }

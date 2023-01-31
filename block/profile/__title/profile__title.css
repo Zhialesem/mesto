@@ -4,4 +4,18 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-self: center;
+    max-width: 880px;
+}
+
+@media (max-width: 780px) {
+    .profile__title {
+        /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+        max-width: calc((100vw - 320px) / (780 - 320) * (440 - 282) + 282px);
+    }
+}
+
+@media (max-width: 780px) {
+    .profile__title {
+        padding: 0;
+    }
 }

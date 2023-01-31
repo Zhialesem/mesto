@@ -18,10 +18,10 @@
     opacity: .6;
 }
 
-@media (max-width: 618px) {
+@media (max-width: 780px) {
     .profile__btn-add {
         background-size: 16px;
-        margin: auto 0;
-        width: 100%;
+        margin: 0 auto;
+        width: 88%;
     }
 }
