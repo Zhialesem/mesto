@@ -8,7 +8,6 @@
     height: 50px;
     margin-left: auto;
     outline: none;
-    transition: opacity .2s linear;
     width: 150px;
     cursor: pointer;
     transition: opacity .3s linear;
