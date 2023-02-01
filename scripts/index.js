@@ -6,14 +6,14 @@ let popup = document.querySelector(".popup");
 //read old data from html
 function readDataFromText() {                                        // функция записи из текста в попап
     //name
-    let profile_Name = document.querySelector('.profile__name');  //ищем в документе поле имени
-    let popup_name = document.querySelector('.popup__name');   //ищем в попапе поле имени
-    popup_name.value = (profile_Name.textContent);;   //в попап переписываем значение поля имени из хтмл
+    let profileName = document.querySelector('.profile__name');  //ищем в документе поле имени
+    let popupName = document.querySelector('.popup__input_type_name');   //ищем в попапе поле имени
+    popupName.value = (profileName.textContent);;   //в попап переписываем значение поля имени из хтмл
 
     //job
-    let profile_Job = document.querySelector('.profile__job');
-    let popup_job = document.querySelector('.popup__job');
-    popup_job.value = (profile_Job.textContent);
+    let profileJob = document.querySelector('.profile__job');
+    let popupJob = document.querySelector('.popup__input_type_job');
+    popupJob.value = (profileJob.textContent);
 };
 
 function toggleOpenPopup() {                                    //функция откр/закр попапа
@@ -42,8 +42,8 @@ popup.addEventListener('click', handleOverlyClick);
 
 // Находим форму в DOM
 let formElement = document.querySelector(".popup__form");
-let nameInput = formElement.querySelector(".popup__name");
-let jobInput = formElement.querySelector(".popup__job");
+let nameInput = formElement.querySelector(".popup__input_type_name");
+let jobInput = formElement.querySelector(".popup__input_type_job");
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
@@ -59,13 +59,13 @@ function handleFormSubmit(evt) {
 
     // Получите значение полей jobInput и nameInput из свойства value
 
-    profile_Name = document.querySelector('.profile__name'); // Выберите элементы, куда должны быть вставлены значения полей
-    profile_Job = document.querySelector('.profile__job');
+    profileName = document.querySelector('.profile__name'); // Выберите элементы, куда должны быть вставлены значения полей
+    profileJob = document.querySelector('.profile__job');
 
     // Вставьте новые значения с помощью textContent
 
-    profile_Name.textContent = nameInput.value;
-    profile_Job.textContent = jobInput.value;
+    profileName.textContent = nameInput.value;
+    profileJob.textContent = jobInput.value;
 
 
     toggleOpenPopup();                                      //закрываем попап
