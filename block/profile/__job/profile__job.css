@@ -1,6 +1,6 @@
 .profile__job {
     margin: 0;
-    padding: 16px 0 0;
+    padding: 9px 0 0;     /*Так как браузер устанавливает расстояние от нижней точки строки (нижняя точка буквы у)*/
     font-style: normal;
     font-weight: 400;
     font-size: 18px;

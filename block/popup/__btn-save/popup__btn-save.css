@@ -13,7 +13,8 @@
     line-height: 22px;
     cursor: pointer;
     transition: opacity .3s linear;
-}
+    border-radius: 2px;
+ }
 
 .profile__btn-add:hover {
     opacity: .8;

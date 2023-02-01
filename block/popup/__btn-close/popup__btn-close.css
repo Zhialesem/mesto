@@ -9,6 +9,7 @@
     right: -40px;
     top: -40px;
     transition: all .4s ease-in-out;
+    cursor: pointer;
 }
 
 @media (max-width: 1280px) {
