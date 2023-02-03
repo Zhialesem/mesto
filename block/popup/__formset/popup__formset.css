@@ -2,5 +2,11 @@
     border: none;
     margin: 0 auto;
     padding: 0;
-    padding-top: 24px;
+    padding-top: 19px;
+}
+
+@media (max-width: 780px) {
+    .popup__formset {
+        padding-top: 42px;
+    }
 }

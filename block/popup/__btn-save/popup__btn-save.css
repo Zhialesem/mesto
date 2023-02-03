@@ -14,8 +14,17 @@
     cursor: pointer;
     transition: opacity .3s linear;
     border-radius: 2px;
- }
+}
 
-.profile__btn-add:hover {
-    opacity: .8;
+.popup__btn-save:hover {
+    opacity: .6;
+}
+
+@media (max-width: 780px) {
+    .popup__btn-save {
+        font-size: 14px;
+        line-height: 17px;
+        height: 48px;
+        margin: 43px 0 0 0;
+    }
 }

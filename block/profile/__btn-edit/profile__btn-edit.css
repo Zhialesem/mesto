@@ -10,8 +10,8 @@
     border: 1px solid rgb(255 255 255);
     outline: none;
     cursor: pointer;
-    transition: opacity .3s linear;
     align-self: center;
+    transition: opacity .3s linear;
 }
 
 .profile__btn-edit:hover {

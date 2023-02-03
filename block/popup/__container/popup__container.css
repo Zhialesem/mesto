@@ -5,17 +5,23 @@
     box-sizing: border-box;
     margin: 0;
     max-width: 430px;
-  
+
     padding: 34px 36px 37px;
     width: 100%;
     position: fixed;
-    top: 190px;
+    top: 195px;
 }
 
 @media (max-width: 1280px) {
     .popup__container {
         /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
         max-width: calc((100vw - 320px) / (1280 - 320) * (430 - 282) + 282px);
-        top: calc((100vw - 320px) / (1280 - 320) * (190 - 110) + 110px);
+        top: calc((100vw - 320px) / (1280 - 320) * (195 - 124) + 124px)
+    }
+}
+
+@media (max-width: 780px) {
+    .popup__container {
+        padding: 21px 22px 24px;;
     }
 }

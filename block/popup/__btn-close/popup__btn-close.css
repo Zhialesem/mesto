@@ -7,9 +7,13 @@
     height: 32px;
     width: 32px;
     right: -40px;
-    top: -40px;
+    top: -38px;
     transition: all .4s ease-in-out;
     cursor: pointer;
+}
+
+.popup__btn-close:hover {
+    opacity: .6;
 }
 
 @media (max-width: 1280px) {
