@@ -3,6 +3,9 @@ let editButton = document.querySelector(".profile__btn-edit"); //ищем пол
 let closeButton = document.querySelector(".popup__btn-close"); //ищем поле кнопки
 let popup = document.querySelector(".popup");
 
+//logo
+let logoField = document.querySelector(".header__logo"); //ищем поле кнопки
+
 //read old data from html
 function readDataFromText() {                                        // функция записи из текста в попап
     //name
@@ -14,6 +17,11 @@ function readDataFromText() {                                        // функ
     let profileJob = document.querySelector('.profile__job');
     let popupJob = document.querySelector('.popup__input_type_job');
     popupJob.value = (profileJob.textContent);
+};
+
+
+function toggleLogo() {                                    //функция откр/закр __logo_active
+    logoField.classList.toggle('header__logo_active');
 };
 
 function toggleOpenPopup() {                                    //функция откр/закр попапа
@@ -35,6 +43,9 @@ let handleOverlyClick = (event) => {                        //обработчи
     }
 };
 
+
+logoField.addEventListener('mouseover', toggleLogo);
+logoField.addEventListener('mouseout', toggleLogo);
 editButton.addEventListener('click', handleEditButtonClick);
 closeButton.addEventListener('click', handleCloseButtonClick);
 popup.addEventListener('click', handleOverlyClick);
