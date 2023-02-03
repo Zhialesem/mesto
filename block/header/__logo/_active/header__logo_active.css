@@ -1,4 +1,5 @@
 .header__logo_active {
   background-image: url(../../../../images/header/header_logo_active.svg);
   background-repeat: no-repeat;
+  visibility: visible;
 }

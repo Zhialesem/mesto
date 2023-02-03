@@ -17,7 +17,7 @@
 }
 
 .popup__btn-save:hover {
-    opacity: .6;
+    opacity: .8;
 }
 
 @media (max-width: 780px) {
