@@ -44,7 +44,7 @@ let handleOverlyClick = (event) => {                        //обработчи
 };
 
 
-logoField.addEventListener('mouseover', toggleLogo);
+logoField.addEventListener('mouseover', toggleLogo);          //слушатель наезда и съезда с элемента
 logoField.addEventListener('mouseout', toggleLogo);
 editButton.addEventListener('click', handleEditButtonClick);
 closeButton.addEventListener('click', handleCloseButtonClick);

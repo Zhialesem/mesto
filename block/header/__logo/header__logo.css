@@ -2,15 +2,15 @@
    margin: 0;
    padding: 0 0 41px;
    background-image: url(../../../images/header/header_logo.svg);
-   transition: all .3 linear;
    object-fit: contain;
    height: 33px;
    width: 142px;
    background-repeat: no-repeat;
+   transition: opacity 2s ease;
 }
 
 .header__logo:hover {
-     cursor: pointer;
+   cursor: pointer;
 }
 
 @media (max-width: 966px) {
