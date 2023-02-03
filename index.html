@@ -24,18 +24,16 @@
 
     <main class="container">
       <section class="profile">
-
-        <img class="profile__img" src="./images/Profile/Cousteau.svg" alt="Фото Жак-Ив Кусто">
-        <div class="profile__title">
+               <div class="profile__title"> 
+          <img class="profile__img" src="./images/Profile/Cousteau.svg" alt="Фото Жак-Ив Кусто">
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив&nbsp;Кусто</h1>
-            <button aria-label ="Редактировать профиль" class="profile__btn-edit" type="button" title="Редактировать профиль"></button>
-
+            <button aria-label="Редактировать профиль" class="profile__btn-edit" type="button"></button>
+            <p class="profile__job">Исследователь океана</p>
           </div>
-          <p class="profile__job">Исследователь океана</p>
-        </div>
-
-        <button aria-label ="Добавить фотографию" class="profile__btn-add" type="button" title="Добавить фотографию"></button>
+                </div>  
+        <button aria-label="Добавить фотографию" class="profile__btn-add" type="button"
+            title="Добавить фотографию"></button>
       </section>
 
       <section class="elements">
@@ -44,7 +42,7 @@
           <img class="element__img" src="./images/elements/karachaevsk.png" alt="Фото старой крепости">
           <figcaption class="element__title">
             <h2 class="element__caption">Карачаевск</h2>
-            <button aria-label ="лайк" class="element__btn-like" type="button" title="лайк"></button>
+            <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
           </figcaption>
         </figure>
 
@@ -52,7 +50,7 @@
           <img class="element__img" src="./images/elements/elbrus.png" alt="Гора Эльбрус">
           <figcaption class="element__title">
             <h2 class="element__caption">Гора Эльбрус</h2>
-            <button aria-label ="лайк" class="element__btn-like" type="button" title="лайк"></button>
+            <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
           </figcaption>
         </figure>
 
@@ -60,7 +58,7 @@
           <img class="element__img" src="./images/elements/dombay.svg" alt="Фото горы">
           <figcaption class="element__title">
             <h2 class="element__caption">Домбай</h2>
-            <button aria-label ="лайк" class="element__btn-like" type="button" title="лайк"></button>
+            <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
           </figcaption>
         </figure>
 
@@ -68,7 +66,7 @@
           <img class="element__img" src="./images/elements/elbrus.png" alt="Гора Эльбрус">
           <figcaption class="element__title">
             <h2 class="element__caption">Гора Эльбрус</h2>
-            <button aria-label ="лайк" class="element__btn-like" type="button" title="лайк"></button>
+            <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
           </figcaption>
         </figure>
 
@@ -76,7 +74,7 @@
           <img class="element__img" src="./images/elements/dombay.svg" alt="Фото горы">
           <figcaption class="element__title">
             <h2 class="element__caption">Домбай</h2>
-            <button aria-label ="лайк" class="element__btn-like" type="button" title="лайк"></button>
+            <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
           </figcaption>
         </figure>
 
@@ -84,7 +82,7 @@
           <img class="element__img" src="./images/elements/karachaevsk.png" alt="Фото старой крепости">
           <figcaption class="element__title">
             <h2 class="element__caption">Карачаево-Черкессия</h2>
-            <button aria-label ="лайк" class="element__btn-like" type="button" title="лайк"></button>
+            <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
           </figcaption>
         </figure>
       </section>
@@ -97,7 +95,7 @@
   </div>
   <div class="popup">
     <div class="popup__container">
-      <button aria-label ="Кнопка закрыть" type="button" class="popup__btn-close"></button>
+      <button aria-label="Кнопка закрыть" type="button" class="popup__btn-close"></button>
 
       <h2 class="popup__title">Редактировать&nbsp;профиль</h2>
 
@@ -106,10 +104,11 @@
           <input type="text" placeholder="Введите имя" name="name" class="popup__input popup__input_type_name">
           <input type="text" placeholder="Введите род занятий" name="job" class="popup__input popup__input_type_job">
           <button type="submit" class="popup__btn-save">Сохранить</button>
-          </fieldset>
+        </fieldset>
       </form>
     </div>
   </div>
   <script src="scripts/index.js"></script>
-  </body>
-  </html>
+</body>
+
+</html>

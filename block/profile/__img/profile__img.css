@@ -3,8 +3,7 @@
     display: block;
     border-radius: 050%;
     max-width: 120px;
-    aspect-ratio: 1 / 1;
-    margin: 0;
+    margin: 0 auto;
 }
 
 @media (max-width: var(--breakpoint)) {

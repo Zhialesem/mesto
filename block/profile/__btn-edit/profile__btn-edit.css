@@ -2,13 +2,16 @@
     padding: 0 0 0 18px;
     background-image: url(../../../images/Profile/edit-img.svg);
     background-repeat: no-repeat;
-    background-size: contain;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+    background-position-x: 50%;
+    background-position-y: center;
+    background-size: 10px;
     height: 24px;
-    width: 24px;
+    background-color: transparent;
+    border: 1px solid rgb(255 255 255);
+    outline: none;
+    cursor: pointer;
     transition: opacity .3s linear;
+    align-self: center;
 }
 
 .profile__btn-edit:hover {
@@ -18,6 +21,8 @@
 @media (max-width: 1280px) {
     .profile__btn-edit {
         /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
+        width: calc((100vw - 320px) / (1280 - 320)*(24 - 18) + 18px);
         height: calc((100vw - 320px) / (1280 - 320)*(24 - 18) + 18px);
+        background-size: calc((100vw - 320px) / (1280 - 320)*(10 - 7.5) + 7.5px);
     }
 }
