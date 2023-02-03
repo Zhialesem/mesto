@@ -16,12 +16,12 @@
     .popup__container {
         /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
         max-width: calc((100vw - 320px) / (1280 - 320) * (430 - 282) + 282px);
-        top: calc((100vw - 320px) / (1280 - 320) * (195 - 124) + 124px)
+        top: calc((100vw - 320px) / (1280 - 320) * (195 - 124) + 124px);
     }
 }
 
 @media (max-width: 780px) {
     .popup__container {
-        padding: 21px 22px 24px;;
+        padding: 21px 22px 24px;
     }
 }
