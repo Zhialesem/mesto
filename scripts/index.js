@@ -26,6 +26,7 @@ const initialCards = [
 ]; 
 //popup open/ close
 let editButton = document.querySelector(".profile__btn-edit"); //ищем поле кнопки
+let addButton = document.querySelector(".profile__btn-edit"); //ищем поле кнопки
 let closeButton = document.querySelector(".popup__btn-close"); //ищем поле кнопки
 let popup = document.querySelector(".popup");
 
