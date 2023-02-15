@@ -1,7 +1,7 @@
 .popup__input {
   margin: 0 auto;
-  padding-top: 23px;
-  padding-bottom: 4px;
+  padding-top: 29px;
+  padding-bottom: 10px;
   border: none;
   border-bottom: 1px solid rgb(0 0 0 / 20%);
   outline-color: rgb(51, 77, 133);
@@ -9,8 +9,7 @@
   width: 100%;
   font-weight: 400;
   font-size: 14px;
-  line-height: 27px;
-  min-height: 27px;
+  line-height: 17px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

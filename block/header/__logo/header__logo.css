@@ -1,19 +1,23 @@
 .header__logo {
    margin: 0;
    padding: 0 0 41px;
-   transition: all;
+   background-image: url(../../../images/header/header_logo.svg);
+   object-fit: contain;
+   height: 33px;
+   width: 142px;
+   background-repeat: no-repeat;
+   transition: all .2s linear;
+}
+
+.header__logo:hover {
+   cursor: pointer;
 }
 
 @media (max-width: 966px) {
    .header__logo {
       /*font-size: calc((100vw - Vmin)/(Vmax - Vmin) * (Fmax - Fmin) + Fmin);*/
-      padding-left: calc((100vw - 320px) / (966 - 320)*(0 - 43) + 43px);
-      padding-bottom: calc((100vw - 320px) / (918 - 320)*(41 - 31.6) + 31.6px);
-      width: calc((100vw - 320px) / (918 - 320)*(142 - 103.74) + 103.74px);
-      height: calc((100vw - 320px) / (918 - 320)*(33 - 24.4) + 24.4px);
+      padding-bottom: calc((100vw - 320px) / (918 - 320)*(41 - 22.6) + 22.6px);
+      margin-left: 27px;
+      background-size: 103.74px 24.4px;
    }
-}
-
-.header__logo:hover {
-   background-color: black .3s;
 }
