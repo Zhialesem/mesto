@@ -6,9 +6,9 @@
     border: none;
     cursor: pointer;
     height: 19px;
-    transition: opacity .3s linear;
     width: 22px;
-}
+    transition: opacity .3s linear;
+   }
 
 .element__btn-like:hover {
     opacity: .5;
