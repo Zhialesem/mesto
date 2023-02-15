@@ -1,0 +1,14 @@
+.element__btn-del {
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url(../../../images/elements/delete.svg);
+    background-repeat: no-repeat;
+    border: none;
+    position: absolute;
+    height: 19px;
+    width: 18px;
+    right: 20px;
+    top: 20px;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+    padding: 0;
+}

@@ -25,6 +25,7 @@
 @import url(../block/element/__title/element__title.css);
 @import url(../block/element/__btn-like/element__btn-like.css);
 @import url(../block/element/__btn-like/_active/element__btn-like_active.css);
+@import url(../block/element/__btn-del/element__btn-del.css);
 
 @import url(../block/footer/__copyright/footer__copyright.css);
 @import url(../block/footer/__mail/footer__mail.css);

@@ -37,53 +37,6 @@
 
       <section class="elements">
 
-        <figure class="element">
-          <img class="element__img" src="./images/elements/karachaevsk.png" alt="Фото старой крепости">
-          <figcaption class="element__title">
-            <h2 class="element__caption">Карачаевск</h2>
-            <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
-          </figcaption>
-        </figure>
-
-        <figure class="element">
-          <img class="element__img" src="./images/elements/elbrus.png" alt="Гора Эльбрус">
-          <figcaption class="element__title">
-            <h2 class="element__caption">Гора Эльбрус</h2>
-            <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
-          </figcaption>
-        </figure>
-
-        <figure class="element">
-          <img class="element__img" src="./images/elements/dombay.svg" alt="Фото горы">
-          <figcaption class="element__title">
-            <h2 class="element__caption">Домбай</h2>
-            <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
-          </figcaption>
-        </figure>
-
-        <figure class="element">
-          <img class="element__img" src="./images/elements/elbrus.png" alt="Гора Эльбрус">
-          <figcaption class="element__title">
-            <h2 class="element__caption">Гора Эльбрус</h2>
-            <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
-          </figcaption>
-        </figure>
-
-        <figure class="element">
-          <img class="element__img" src="./images/elements/dombay.svg" alt="Фото горы">
-          <figcaption class="element__title">
-            <h2 class="element__caption">Домбай</h2>
-            <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
-          </figcaption>
-        </figure>
-
-        <figure class="element">
-          <img class="element__img" src="./images/elements/karachaevsk.png" alt="Фото старой крепости">
-          <figcaption class="element__title">
-            <h2 class="element__caption">Карачаево-Черкессия</h2>
-            <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
-          </figcaption>
-        </figure>
       </section>
     </main>
     <footer class="footer">
@@ -92,7 +45,21 @@
       </a>
     </footer>
   </div>
-  <div class="popup">
+
+  <template id="element">
+    <figure class="element">
+
+      <img class="element__img" src="./images/elements/karachaevsk.png" alt="Фото старой крепости">
+      <button aria-label="удалить" class="element__btn-del" type="button" title="удалить"></button>
+      <figcaption class="element__title">
+        <h2 class="element__caption">Карачаевск</h2>
+        <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
+
+      </figcaption>
+    </figure>
+  </template>
+
+  <div class="popup popup-profile">
     <div class="popup__container">
       <button aria-label="Кнопка закрыть" type="button" class="popup__btn-close"></button>
 
@@ -107,6 +74,23 @@
       </form>
     </div>
   </div>
+
+  <div class="popup popup-new-item">
+    <div class="popup__container">
+      <button aria-label="Кнопка закрыть" type="button" class="popup__btn-close"></button>
+
+      <h2 class="popup__title">Редактировать&nbsp;профиль</h2>
+
+      <form name="edit-form" action="#" class="popup__form" novalidate="">
+        <fieldset class="popup__formset">
+          <input type="text" placeholder="Введите имя" name="name" class="popup__input popup__input_type_name">
+          <input type="text" placeholder="Введите род занятий" name="job" class="popup__input popup__input_type_job">
+          <button type="submit" class="popup__btn-save">Сохранить</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
   <script src="scripts/index.js"></script>
 </body>
 
