@@ -23,88 +23,75 @@ const initialCards = [
         name: 'Байкал',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
-]; 
-//popup open/ close
-let editButton = document.querySelector(".profile__btn-edit"); //ищем поле кнопки
-let closeButton = document.querySelector(".popup__btn-close"); //ищем поле кнопки
-let popup = document.querySelector(".popup");
+];
 
-//logo
-let logoField = document.querySelector(".header__logo"); //ищем поле кнопки
+
+OpenPopup = (popup) => {
+    popup.classList.add('popup_opened');
+};
+
+ClosePopup = (popup) => {
+    popup.classList.remove('popup_opened');
+};
+
 
 //read old data from html
-function readDataFromText() {                                        // функция записи из текста в попап
+readDataFromText = () => {                                        // функция записи из текста в попап
     //name
-    let profileName = document.querySelector('.profile__name');  //ищем в документе поле имени
-    let popupName = document.querySelector('.popup__input_type_name');   //ищем в попапе поле имени
+    const profileName = document.querySelector('.profile__name');  //ищем в документе поле имени
+    const popupName = document.querySelector('.popup__input_type_name');   //ищем в попапе поле имени
     popupName.value = (profileName.textContent);;   //в попап переписываем значение поля имени из хтмл
 
     //job
-    let profileJob = document.querySelector('.profile__job');
-    let popupJob = document.querySelector('.popup__input_type_job');
+    const profileJob = document.querySelector('.profile__job');
+    const popupJob = document.querySelector('.popup__input_type_job');
     popupJob.value = (profileJob.textContent);
 };
 
 
-function toggleLogo() {                                    //функция откр/закр __logo_active
-    logoField.classList.toggle('header__logo_active');
+//открыть попап редактирования профиля
+const popupEditProfile = document.querySelector(".popup-profile");
+const editButton = document.querySelector(".profile__btn-edit"); //ищем поле кнопки редактировать
+const handleEditButtonClick = () => {
+    OpenPopup(popupEditProfile);
+    readDataFromText();
 };
-
-function toggleOpenPopup() {                                    //функция откр/закр попапа
-    popup.classList.toggle('popup_opened');
-};
-
-let handleEditButtonClick = () => {                        //обработчик кнопки 
-    toggleOpenPopup();
-    readDataFromText()                                     //и вызов заполнения попапа из текста
-};
-
-let handleCloseButtonClick = () => {                         //обработчик кнопки
-    toggleOpenPopup();
-};
-
-let handleOverlyClick = (event) => {                        //обработчик кнопки
-    if (event.target === event.currentTarget) {
-        toggleOpenPopup();
-    }
-};
-
-
-logoField.addEventListener('mouseover', toggleLogo);          //слушатель наезда и съезда с элемента лого
-logoField.addEventListener('mouseout', toggleLogo);
-
 editButton.addEventListener('click', handleEditButtonClick);
-closeButton.addEventListener('click', handleCloseButtonClick);
-popup.addEventListener('click', handleOverlyClick);
 
+
+//открыть попап добавления новой карточки
+const popupNewCard = document.querySelector(".popup-new-item");
+const addButton = document.querySelector(".profile__btn-add"); //ищем поле кнопки обработчик кнопки Добавить
+const handleAddButtonClick = () => {
+    OpenPopup(popupNewCard);
+};
+addButton.addEventListener('click', handleAddButtonClick);
+
+//закрыть попап при щелчке на крестик или оверлей
+const popups = document.querySelectorAll('.popup');
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup_opened') ||
+            (evt.target.classList.contains('popup__btn-close'))) {
+            ClosePopup(popup);
+        }
+    })
+}
+);
 
 // Находим форму в DOM
 const formElement = document.querySelector(".popup__form");
-const nameInput = formElement.querySelector(".popup__input_type_name");
-const jobInput = formElement.querySelector(".popup__input_type_job");
-
-// Обработчик «отправки» формы, хотя пока
-// она никуда отправляться не будет
-function handleFormSubmit(evt) {
-    evt.preventDefault();
+const nameInput = document.querySelector(".popup__input_type_name");
+const jobInput = document.querySelector(".popup__input_type_job");
 
 
-    // Эта строчка отменяет стандартную отправку формы.
-    // Так мы можем определить свою логику отправки.
-    // О том, как это делать, расскажем позже.
-
-    // Получите значение полей jobInput и nameInput из свойства value
-
+function handleFormSubmit(evt) { // Обработчик «отправки» формы, хотя пока  она никуда отправляться не будет
+    evt.preventDefault();    // Эта строчка отменяет стандартную отправку формы.
     profileName = document.querySelector('.profile__name'); // Выберите элементы, куда должны быть вставлены значения полей
     profileJob = document.querySelector('.profile__job');
-
-    // Вставьте новые значения с помощью textContent
-
-    profileName.textContent = nameInput.value;
-    profileJob.textContent = jobInput.value;
-
-
-    toggleOpenPopup();                                      //закрываем попап
+    profileName.textContent = nameInput.value;  // Вставьте новые значения с помощью textContent
+    profileJob.textContent = jobInput.value; // Получите значение полей jobInput и nameInput из свойства value
+    ClosePopup(popupEditProfile);                                      //закрываем попап
 }
 
 // Прикрепляем обработчик к форме:
@@ -115,7 +102,21 @@ const elementWrapper = document.querySelector('.elements'); //контейнер
 const form = document.querySelector('popup-new-item'); //попап добавления картинки
 const template = document.getElementById('element');  //темплейт
 
+const handleDeconstr = (evt) => {
+    evt.target.closest('.element').remove();
+};
+const handleLiked = (evt) => {
+    evt.target.closest('.element__btn-like').classList.add('element__btn-like_active');
+};
 
+elementWrapper.addEventListener('click', (evt) => {
+    console.log(evt.target);
+    if (evt.target.classList.contains('element__btn-del')) {
+        handleDeconstr(evt);
+    } else if (evt.target.classList.contains('element__btn-like')) {
+        handleLiked(evt);
+    }
+});
 
 const getElement = (caption, image) => {
     const newElement = template.content.cloneNode(true);             //создаем из темплейта
@@ -127,17 +128,29 @@ const getElement = (caption, image) => {
 }
 
 
-
-const renderItem = (wrap, caption, image) => {
-    wrap.append(getElement(caption, image));
+//добавка карточки. initial - маркер для добавления карты из коробки
+const renderItem = (wrap, caption, image, initial) => {
+    if (initial) {
+        wrap.append(getElement(caption, image));  //в конец, если из коробки
+        initial = false;
+    }                    //добавление карточки
+    else wrap.prepend(getElement(caption, image));         //в начало
 }
 
+//подготовка карточек из коробки
 initialCards.forEach((card) => {//пробегаем по начальному массиву
-    const caption = card.name;
-    const image = card.link;
-    renderItem(elementWrapper, caption, image);
+    const initial = true;
+    renderItem(elementWrapper, card.name, card.link, initial);
 
 })
+
+//logo затемнение
+const logoField = document.querySelector(".header__logo"); //ищем поле кнопки
+toggleLogo = () => {                                    //функция откр/закр __logo_active
+    logoField.classList.toggle('header__logo_active');
+};
+logoField.addEventListener('mouseover', toggleLogo);          //слушатель наезда и съезда с элемента лого
+logoField.addEventListener('mouseout', toggleLogo);
 
 
 
