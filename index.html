@@ -9,7 +9,7 @@
   <link rel="icon" type="image/svg" href="./images/favicon.ico">
   <link rel="stylesheet" href="./pages/index.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="ПР4 Жидков А.В. на Яндекс.Практикуме">
+  <meta name="description" content="ПР4 и ПР5 Жидков А.В. на Яндекс.Практикуме">
   <meta name="author" content="Александр Жидков">
   <meta name="keywords" content="Красивые места">
   <meta name="robots" content="index, follow">
@@ -49,13 +49,11 @@
 
   <template id="element">
     <figure class="element">
-
       <img class="element__img" src="./images/elements/karachaevsk.png" alt="Фото старой крепости">
       <button aria-label="удалить" class="element__btn-del" type="button" title="удалить"></button>
       <figcaption class="element__title">
         <h2 class="element__caption">Карачаевск</h2>
         <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
-
       </figcaption>
     </figure>
   </template>
@@ -80,12 +78,12 @@
     <div class="popup__container">
       <button aria-label="Кнопка закрыть" type="button" class="popup__btn-close"></button>
 
-      <label class="popup__title">Редактировать&nbsp;профиль</label>
+      <label class="popup__title">Новое&nbsp;место</label>
 
       <form name="edit-form" action="#" class="popup__form" novalidate="">
         <fieldset class="popup__formset">
-          <input type="text" placeholder="Введите имя" name="name" class="popup__input popup__input_type_name">
-          <input type="text" placeholder="Введите род занятий" name="job" class="popup__input popup__input_type_job">
+          <input type="text" placeholder="Название" name="name" class="popup__input popup__input_type_name">
+          <input type="text" placeholder="Ссылка на картинку" name="job" class="popup__input popup__input_type_job">
           <button type="submit" class="popup__btn-save">Сохранить</button>
         </fieldset>
       </form>
