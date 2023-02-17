@@ -27,7 +27,7 @@ editButton.addEventListener('click', (evt) => {
 // обработчик сабмита Edit profile
 popupEditProfile.addEventListener('submit', (evt) => {
     evt.preventDefault();    // Эта строчка отменяет стандартную отправку формы.
-    const fieldFirstStr = document.querySelector('.profile__name'); /
+    const fieldFirstStr = document.querySelector('.profile__name'); 
     const fieldSecondStr = document.querySelector('.profile__job');
     fieldFirstStr.textContent = evt.target.name.value;  
     fieldSecondStr.textContent = evt.target.job.value;
