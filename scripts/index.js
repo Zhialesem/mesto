@@ -74,7 +74,7 @@ const handleZoom = (evt) => {
     const srcImg = popupZoom.querySelector('.popup__zoom-img');
     srcImg.src = fieldImg.src;
     const fieldFrom = thisItem.querySelector('.element__caption');
-    const fieldTo = popupZoom.querySelector('.popup__zoom_caption');
+    const fieldTo = popupZoom.querySelector('.popup__zoom-caption');
     fieldTo.textContent = fieldFrom.textContent;
     OpenPopup(popupZoom);
 
