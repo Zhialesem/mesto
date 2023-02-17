@@ -74,22 +74,21 @@
     </div>
   </div>
 
-  <div class="popup popup-new-item">
+  <div class="popup popup-new-item popup_opened">
     <div class="popup__container">
       <button aria-label="Кнопка закрыть" type="button" class="popup__btn-close"></button>
-
       <label class="popup__title">Новое&nbsp;место</label>
-
       <form name="add-form" action="#" class="popup__form popup__add-form" novalidate="">
         <fieldset class="popup__formset">
-          <input type="text" placeholder="Название" name="name" class="popup__input popup__input_type_name">
-          <input type="text" placeholder="Ссылка на картинку" name="job" class="popup__input popup__input_type_crc">
+          <input type="text" placeholder="Название" name="title" class="popup__input popup__input_type_name">
+          <input type="text" placeholder="Ссылка на картинку" name="src" class="popup__input popup__input_type_src">
           <button type="submit" class="popup__btn-save">Сохранить</button>
         </fieldset>
       </form>
     </div>
   </div>
 
+  <script src="scripts/init_cards.js"></script>
   <script src="scripts/index.js"></script>
 </body>
 
