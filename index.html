@@ -49,7 +49,7 @@
 
   <template id="element">
     <figure class="element">
-      <img class="element__img" src="./images/elements/karachaevsk.png" alt="Фото старой крепости">
+      <img class="element__img" src="./images/elements/karachaevsk.png" alt="#">
       <button aria-label="удалить" class="element__btn-del" type="button" title="удалить"></button>
       <figcaption class="element__title">
         <h2 class="element__caption">Карачаевск</h2>
@@ -85,6 +85,14 @@
           <button type="submit" class="popup__btn-save">Сохранить</button>
         </fieldset>
       </form>
+    </div>
+  </div>
+
+  <div class="popup popup_zoom-active">
+    <div class="popup__zoom-container">
+      <button aria-label="Кнопка закрыть" type="button" class="popup__btn-close"></button>
+      <img class="popup__zoom-img" src="./images/elements/karachaevsk.png" alt="#">
+      <p class="popup__zoom_caption">Карачаевск</p>
     </div>
   </div>
 
