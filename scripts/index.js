@@ -6,43 +6,43 @@ const closePopup = (popup) => {
     popup.classList.remove('popup_opened');
 };
 
-const fieldProfileName = document.querySelector('.profile__name');  //ищем в документе поле имени
+const fieldProfileName = document.querySelector('.profile__name');
 const fieldProfileJob = document.querySelector('.profile__job');
-const fieldPopupInputName = document.querySelector('.popup__input_type_name');   //ищем в попапе поле имени
+const fieldPopupInputName = document.querySelector('.popup__input_type_name');
 const fieldPopupInputJob = document.querySelector('.popup__input_type_job');
 const popupEditProfile = document.querySelector(".popup-profile");
 const editButton = document.querySelector(".profile__btn-edit");
 const popupNewCard = document.querySelector(".popup-new-item");
-const addButton = document.querySelector(".profile__btn-add"); //ищем поле кнопки обработчик кнопки Добавить
+const addButton = document.querySelector(".profile__btn-add");
 const popups = document.querySelectorAll('.popup');
-const template = document.getElementById('element');  //темплейт карточки
+const template = document.getElementById('element');
 const popupZoom = document.querySelector(".popup_zoom-active");
 const fieldPopupZoomImg = popupZoom.querySelector('.popup__zoom-img');
 const fieldPopupZoomCaption = popupZoom.querySelector('.popup__zoom-caption');
-const addCardForm = document.forms['add-form'];//https://developer.mozilla.org/ru/docs/Web/API/Document/forms
-const elementWrapper = document.querySelector('.elements'); //контейнер карточек
+const addCardForm = document.forms['add-form'];                                //https://developer.mozilla.org/ru/docs/Web/API/Document/forms
+const elementWrapper = document.querySelector('.elements');                    //card container
 
-//открыть попап редактирования профиля
+//open profile edit popup
 editButton.addEventListener('click', (evt) => {
     openPopup(popupEditProfile);
     fieldPopupInputName.value = (fieldProfileName.textContent);
     fieldPopupInputJob.value = (fieldProfileJob.textContent);
 });
 
-// обработчик сабмита Edit profile
+// Edit profile submit handler
 popupEditProfile.addEventListener('submit', (evt) => {
-    evt.preventDefault();    // Эта строчка отменяет стандартную отправку формы.
+    evt.preventDefault();                                                      // Эта строчка отменяет стандартную отправку формы.
     fieldProfileName.textContent = evt.target.name.value;
     fieldProfileJob.textContent = evt.target.job.value;
     closePopup(popupEditProfile);
 });
 
-//открыть попап добавления новой карточки
+//open popup for adding a new card
 addButton.addEventListener('click', () => {
     openPopup(popupNewCard);
 });
 
-//закрыть попап при щелчке на крестик или оверлей
+//close the popup when clicking on the cross or overlay
 popups.forEach((popup) => {
     popup.addEventListener('mousedown', (evt) => {
         if (evt.target.classList.contains('popup_opened') ||
@@ -57,14 +57,14 @@ popups.forEach((popup) => {
     if (evt.target.classList.contains('element__btn-del')) {
         handleDelete(evt);
     } else if (evt.target.classList.contains('element__btn-like')) {
-        handleLiked(evt);
+        handleLike(evt);
     } else if (evt.target.classList.contains('element__img')) {
         handleZoom(evt);
     }
 });
 */
 
-//зум
+//zoom
 const handleZoom = (caption, image) => {
     fieldPopupZoomImg.src = image;
     fieldPopupZoomCaption.textContent = caption;
@@ -72,17 +72,17 @@ const handleZoom = (caption, image) => {
     openPopup(popupZoom);
 };
 
-//удаление карточки
+//deleting a card
 const handleDelete = (evt) => {
     evt.target.closest('.element').remove();
 };
 
-//обработка лайков
-const handleLiked = (evt) => {
+//likes handler
+const handleLike = (evt) => {
     evt.target.classList.toggle('element__btn-like_active');
 };
 
-//подготовка новой карточки
+//preparing a new card
 const getElement = (caption, image) => {
     const newElement = template.content.cloneNode(true);             //создаем из темплейта
     const newElementCaption = newElement.querySelector('.element__caption');
@@ -96,33 +96,31 @@ const getElement = (caption, image) => {
     });
     const cardLikeBtn = newElement.querySelector('.element__btn-like');
     cardLikeBtn.addEventListener('click', (evt) => {
-        handleLiked(evt)
+        handleLike(evt)
     });
     newElementImage.addEventListener('click', () => handleZoom(caption, image));
     return newElement;
 };
 
-//отрисовка карточки. initial - маркер для добавления карты из коробки
+//card rendering. initial - init. marker if card "from box"
 const renderItem = (wrap, caption, image, initial) => {
     if (initial) {
-        wrap.append(getElement(caption, image));  //в конец, если из коробки
+        wrap.append(getElement(caption, image));  //"from box"
     }
-    else wrap.prepend(getElement(caption, image));   //в начало
+    else wrap.prepend(getElement(caption, image));   //added card
 };
 
-//подготовка карточек из коробки
+//preparing a new card "from box"
 initialCards.forEach((card) => {
     renderItem(elementWrapper, card.name, card.link, true);
 });
 
-///обработка submit попапа новой карточки
+///handling submit of new card popup
 addCardForm.addEventListener('submit', (evt) => {
     const caption = evt.target.title.value;
     const image = evt.target.src.value;
     evt.preventDefault();
-    //evt.target.title.value = '';
-    //evt.target.src.value = '';
-    evt.target.reset();  //https://developer.mozilla.org/ru/docs/Web/API/HTMLFormElement/reset
+    evt.target.reset();                                                                       //https://developer.mozilla.org/ru/docs/Web/API/HTMLFormElement/reset
     renderItem(elementWrapper, caption, image, false);
     closePopup(popupNewCard);
 });
