@@ -65,13 +65,10 @@ popups.forEach((popup) => {
 */
 
 //зум
-const handleZoom = (evt) => {
-    const thisItem = evt.target.closest('.element'); //вызываем ближайший родительский элемент
-    const fieldCardImg = thisItem.querySelector('.element__img');
-    fieldPopupZoomImg.src = fieldCardImg.src;
-    const fieldCardCaption = thisItem.querySelector('.element__caption');
-    fieldPopupZoomCaption.textContent = fieldCardCaption.textContent;
-    fieldPopupZoomImg.alt = fieldCardCaption.textContent;
+const handleZoom = (caption, image) => {
+    fieldPopupZoomImg.src = image;
+    fieldPopupZoomCaption.textContent = caption;
+    fieldPopupZoomImg.alt = caption;
     openPopup(popupZoom);
 };
 
@@ -82,7 +79,7 @@ const handleDelete = (evt) => {
 
 //обработка лайков
 const handleLiked = (evt) => {
-    evt.target.closest('.element__btn-like').classList.toggle('element__btn-like_active');
+    evt.target.classList.toggle('element__btn-like_active');
 };
 
 //подготовка новой карточки
@@ -101,10 +98,7 @@ const getElement = (caption, image) => {
     cardLikeBtn.addEventListener('click', (evt) => {
         handleLiked(evt)
     });
-    const cardZoomBtn = newElement.querySelector('.element__img');
-    cardZoomBtn.addEventListener('click', (evt) => {
-        handleZoom(evt)
-    });
+    newElementImage.addEventListener('click', () => handleZoom(caption, image));
     return newElement;
 };
 
@@ -132,21 +126,3 @@ addCardForm.addEventListener('submit', (evt) => {
     renderItem(elementWrapper, caption, image, false);
     closePopup(popupNewCard);
 });
-
-
-
-/*logo затемнение
-const logoField = document.querySelector(".header__logo");
-toggleLogo = () => {
-    logoField.classList.toggle('header__logo_active');
-};
-logoField.addEventListener('mouseover', toggleLogo);          /
-logoField.addEventListener('mouseout', toggleLogo);
-
-
-/* Переделать сбор входов
-const newData = {};
-const values = modalWindow.querySelectorAll('.input');
-values.forEach((data) => {
-    newData[data.name] = data.value;
-*/
