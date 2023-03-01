@@ -31,7 +31,7 @@ editButton.addEventListener('click', (evt) => {
 
 // Edit profile submit handler
 popupEditProfile.addEventListener('submit', (evt) => {
-    evt.preventDefault();                                                      // Эта строчка отменяет стандартную отправку формы.
+    evt.preventDefault();                                                      
     fieldProfileName.textContent = evt.target.name.value;
     fieldProfileJob.textContent = evt.target.job.value;
     closePopup(popupEditProfile);
@@ -84,7 +84,7 @@ const handleLike = (evt) => {
 
 //preparing a new card
 const getElement = (caption, image) => {
-    const newElement = template.content.cloneNode(true);             //создаем из темплейта
+    const newElement = template.content.cloneNode(true);                            
     const newElementCaption = newElement.querySelector('.element__caption');
     newElementCaption.textContent = caption;
     const newElementImage = newElement.querySelector('.element__img');
@@ -105,9 +105,9 @@ const getElement = (caption, image) => {
 //card rendering. initial - init. marker if card "from box"
 const renderItem = (wrap, caption, image, initial) => {
     if (initial) {
-        wrap.append(getElement(caption, image));  //"from box"
+        wrap.append(getElement(caption, image));                                              //"from box"
     }
-    else wrap.prepend(getElement(caption, image));   //added card
+    else wrap.prepend(getElement(caption, image));                                           //added card
 };
 
 //preparing a new card "from box"
