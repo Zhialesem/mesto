@@ -1,0 +1,6 @@
+.popup__formField {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 38px 0;
+}

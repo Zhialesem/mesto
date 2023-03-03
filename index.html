@@ -9,7 +9,7 @@
   <link rel="icon" type="image/svg" href="./images/favicon.ico">
   <link rel="stylesheet" href="./pages/index.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="ПР4 и ПР5 Жидков А.В. на Яндекс.Практикуме">
+  <meta name="description" content="ПР4, ПР5 и ПР6 Жидков А.В. на Яндекс.Практикуме">
   <meta name="author" content="Александр Жидков">
   <meta name="keywords" content="Красивые места">
   <meta name="robots" content="index, follow">
@@ -66,9 +66,17 @@
 
       <form name="edit-form" action="#" class="popup__form popup__edit-form" novalidate="">
         <fieldset class="popup__formset">
-          <input type="text" placeholder="Введите имя" name="name" class="popup__input popup__input_type_name">
-          <input type="text" placeholder="Введите род занятий" name="job" class="popup__input popup__input_type_job">
-          <button type="submit" class="popup__btn-save">Сохранить</button>
+          <label class="popup__formField">
+            <input type="text" placeholder="Введите имя" id="name-input" class="popup__input popup__input_type_name"
+              minlength="2" maxlength="40" required>
+            <span class="popup__msg-error name-input-error"></span>
+          </label>
+          <label class="popup__formField">
+            <input type="text" placeholder="Введите род занятий" id="about-input"
+              class="popup__input popup__input_type_job" minlength="2" maxlength="200" required>
+            <span class="popup__msg-error about-input-error"></span>
+          </label>
+          <button type="submit" class="popup__button">Сохранить</button>
         </fieldset>
       </form>
     </div>
@@ -77,12 +85,20 @@
   <div class="popup popup-new-item">
     <div class="popup__container">
       <button aria-label="Кнопка закрыть" type="button" class="popup__btn-close"></button>
-      <label class="popup__title">Новое&nbsp;место</label>
+      <h2 class="popup__title">Новое&nbsp;место</h2>
       <form name="add-form" action="#" class="popup__form popup__add-form" novalidate="">
         <fieldset class="popup__formset">
-          <input type="text" placeholder="Название" name="title" class="popup__input popup__input_type_name">
-          <input type="text" placeholder="Ссылка на картинку" name="src" class="popup__input popup__input_type_src">
-          <button type="submit" class="popup__btn-save">Сохранить</button>
+          <label class="popup__formField">
+            <input type="text" placeholder="Название" id="title-input" class="popup__input popup__input_type_name"
+              minlength="2" maxlength="40" required>
+            <span class="popup__msg-error title-input-error"></span>
+          </label>
+          <label class="popup__formField">
+            <input type="url" placeholder="Ссылка на картинку" id="src-input" class="popup__input popup__input_type_src"
+              required>
+            <span class="popup__msg-error src-input-error"></span>
+          </label>
+          <button type="submit" class="popup__button">Сохранить</button>
         </fieldset>
       </form>
     </div>
@@ -90,14 +106,16 @@
 
   <div class="popup popup_zoom-active">
     <div class="popup__zoom-container">
-      <button aria-label="Кнопка закрыть" type="button" class="popup__btn-close"></button>
+      <button aria-label="Кнопка закрыть" type="button" class="popup__button"></button>
       <img class="popup__zoom-img" src="./images/elements/karachaevsk.png" alt="#">
       <p class="popup__zoom-caption">Карачаевск</p>
     </div>
   </div>
 
+  <script src="scripts/validate.js"></script>
   <script src="scripts/initCards.js"></script>
   <script src="scripts/index.js"></script>
+
 </body>
 
 </html>
