@@ -1,9 +1,11 @@
 const openPopup = (popup) => {
     popup.classList.add('popup_opened');
+    addEscHandler(popup);
 };
 
 const closePopup = (popup) => {
     popup.classList.remove('popup_opened');
+    removeEscHandler(popup);
 };
 
 const fieldProfileName = document.querySelector('.profile__name');
@@ -31,7 +33,7 @@ editButton.addEventListener('click', (evt) => {
 
 // Edit profile submit handler
 popupEditProfile.addEventListener('submit', (evt) => {
-    evt.preventDefault();                                                      
+    evt.preventDefault();
     fieldProfileName.textContent = evt.target.name.value;
     fieldProfileJob.textContent = evt.target.job.value;
     closePopup(popupEditProfile);
@@ -52,6 +54,24 @@ popups.forEach((popup) => {
     })
 }
 );
+
+//close the popup when pressing on the Esc key
+const addEscHandler = (popup) => {
+    document.addEventListener('keydown', (evt) => {
+        if (evt.key === "Escape") {
+            closePopup(popup);
+        }
+    })
+};
+
+const removeEscHandler = (popup) => {
+    document.removeEventListener('keydown', (evt) => {
+        if (evt.key === "Escape") {
+            closePopup(popup);
+        }
+    })
+};
+
 
 /*elementWrapper.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('element__btn-del')) {
@@ -84,7 +104,7 @@ const handleLike = (evt) => {
 
 //preparing a new card
 const getElement = (caption, image) => {
-    const newElement = template.content.cloneNode(true);                            
+    const newElement = template.content.cloneNode(true);
     const newElementCaption = newElement.querySelector('.element__caption');
     newElementCaption.textContent = caption;
     const newElementImage = newElement.querySelector('.element__img');

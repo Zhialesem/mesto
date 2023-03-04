@@ -3,7 +3,8 @@
     color: red;
     opacity: 0;
     position: absolute;
-    top: calc(60% + 1px);
+    top: calc(104% + 1px);
     left: 0;
     transition: 0.1s;
+    z-index: 1;
 }
