@@ -42,7 +42,7 @@ const setEventListeners = (config, formElement) => {
     toggleButtonState(config, inputList, buttonElement);
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', function () {
-                     inputElement.setAttribute('required', true);
+            inputElement.setAttribute('required', true);
             checkInputValidity(formElement, inputElement);
             toggleButtonState(config, inputList, buttonElement);
         });
@@ -56,4 +56,4 @@ const enableValidation = (config) => {
     })
 };
 
-enableValidation(config); // 1. Это единственная строчка кода которая лежит вне функции. При загрузке страницы произойдет вызов функции enableValidation()
+enableValidation(config); 
