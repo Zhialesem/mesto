@@ -1,13 +1,3 @@
-const openPopup = (popup) => {
-    popup.classList.add('popup_opened');
-    addEscHandler(popup);
-};
-
-const closePopup = (popup) => {
-    popup.classList.remove('popup_opened');
-    removeEscHandler(popup);
-};
-
 const fieldProfileName = document.querySelector('.profile__name');
 const fieldProfileJob = document.querySelector('.profile__job');
 const fieldPopupInputName = document.querySelector('.popup__input_type_name');
@@ -23,6 +13,16 @@ const fieldPopupZoomImg = popupZoom.querySelector('.popup__zoom-img');
 const fieldPopupZoomCaption = popupZoom.querySelector('.popup__zoom-caption');
 const addCardForm = document.forms['add-form'];                                //https://developer.mozilla.org/ru/docs/Web/API/Document/forms
 const elementWrapper = document.querySelector('.elements');                    //card container
+
+const openPopup = (popup) => {
+    popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closeByEscape);
+};
+
+const closePopup = (popup) => {
+    popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closeByEscape);
+};
 
 //open profile edit popup
 editButton.addEventListener('click', (evt) => {
@@ -56,22 +56,12 @@ popups.forEach((popup) => {
 );
 
 //close the popup when pressing on the Esc key
-const addEscHandler = (popup) => {
-    document.addEventListener('keydown', (evt) => {
-        if (evt.key === "Escape") {
-            closePopup(popup);
-        }
-    })
+function closeByEscape(evt) {
+    if (evt.key === 'Escape') {
+        const openedPopup = document.querySelector('.popup_opened') 
+        closePopup(openedPopup);
+  }
 };
-
-const removeEscHandler = (popup) => {
-    document.removeEventListener('keydown', (evt) => {
-        if (evt.key === "Escape") {
-            closePopup(popup);
-        }
-    })
-};
-
 
 /*elementWrapper.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('element__btn-del')) {

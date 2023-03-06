@@ -41,14 +41,19 @@ const toggleButtonState = (config, inputList, buttonElement) => {
 const setEventListeners = (config, formElement) => {
     const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
     const buttonElement = formElement.querySelector(config.submitButtonSelector);
-    toggleButtonState(config, inputList, buttonElement);
+  
     inputList.forEach((inputElement) => {
+        checkInputValidity(formElement, inputElement);
+        toggleButtonState(config, inputList, buttonElement);
+        inputElement.setAttribute('required', true);
         inputElement.addEventListener('input', function () {
-            inputElement.setAttribute('required', true);
-            console.log('requi')
-          //  formElement.setAttribute('required', true);
             checkInputValidity(formElement, inputElement);
             toggleButtonState(config, inputList, buttonElement);
+        })
+    })
+    formElement.addEventListener('reset', () => {                   // ждем события 'reset' из файла index str. 143
+        setTimeout(() => {                                          //таймаут на машинный такт
+            toggleButtonState(config, inputList, buttonElement), 0
         })
     })
 };
