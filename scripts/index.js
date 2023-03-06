@@ -58,9 +58,9 @@ popups.forEach((popup) => {
 //close the popup when pressing on the Esc key
 function closeByEscape(evt) {
     if (evt.key === 'Escape') {
-        const openedPopup = document.querySelector('.popup_opened') 
+        const openedPopup = document.querySelector('.popup_opened')
         closePopup(openedPopup);
-  }
+    }
 };
 
 /*elementWrapper.addEventListener('click', (evt) => {

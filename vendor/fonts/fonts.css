@@ -10,9 +10,9 @@
 
 @font-face {
   src:
-    url(./inter/Medium_500/Inter-Medium.woff2) format('woff2'),
+    url(./Inter/Medium_500/Inter-Medium.woff2) format('woff2'),
     url(./Inter/Medium_500/Inter-Medium.woff) format('woff'),
-    url(./inter/Medium_500/Inter-Medium.ttf) format('truetype');
+    url(./Inter/Medium_500/Inter-Medium.ttf) format('truetype');
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
