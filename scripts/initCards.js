@@ -25,7 +25,7 @@ const initialCards = [
     }
 ];
 
-const config = {
+const configValidity = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',

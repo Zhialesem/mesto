@@ -12,7 +12,7 @@ const hideInputError = (config, formElement, inputElement) => {
     errorElement.textContent = '';
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (config, formElement, inputElement) => {
     if (!inputElement.validity.valid) {
         showInputError(config, formElement, inputElement, inputElement.validationMessage);
     } else {
@@ -41,11 +41,11 @@ const setEventListeners = (config, formElement) => {
     const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
     inputList.forEach((inputElement) => {
-        checkInputValidity(formElement, inputElement);
+        checkInputValidity(config, formElement, inputElement);
         toggleButtonState(config, inputList, buttonElement);
         inputElement.setAttribute('required', true);
         inputElement.addEventListener('input', function () {
-            checkInputValidity(formElement, inputElement);
+            checkInputValidity(config, formElement, inputElement);
             toggleButtonState(config, inputList, buttonElement);
         })
     })
@@ -56,11 +56,12 @@ const setEventListeners = (config, formElement) => {
     })
 };
 
-const enableValidation = (config) => {
+function enableValidation(config){
     const formList = Array.from(document.querySelectorAll(config.formSelector));
     formList.forEach((formElement) => {
         setEventListeners(config, formElement);
     })
 };
 
-enableValidation(config); 
+//const config = configValidity;
+enableValidation(configValidity); 
