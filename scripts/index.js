@@ -1,8 +1,7 @@
-import { initialCards, configValidity } from './utils.js';
-import {Card} from './Card.js';
-
-
-
+import { initialCards } from './utils.js';
+import { Card } from './Card.js';
+import { configValidity } from './utils.js';
+import { FormValidator } from './FormValidator.js';
 
 const fieldProfileName = document.querySelector('.profile__name');
 const fieldProfileJob = document.querySelector('.profile__job');
@@ -13,12 +12,16 @@ const editButton = document.querySelector(".profile__btn-edit");
 const popupNewCard = document.querySelector(".popup-new-item");
 const addButton = document.querySelector(".profile__btn-add");
 const popups = document.querySelectorAll('.popup');
-/*const template = document.getElementById('element');*/
 const popupZoom = document.querySelector(".popup_zoom-active");
 const fieldPopupZoomImg = popupZoom.querySelector('.popup__zoom-img');
 const fieldPopupZoomCaption = popupZoom.querySelector('.popup__zoom-caption');
 const addCardForm = document.forms['add-form'];                                //https://developer.mozilla.org/ru/docs/Web/API/Document/forms
 const elementWrapper = document.querySelector('.elements');                    //card container
+
+const validationProfile = new FormValidator(configValidity, popupEditProfile)
+validationProfile.enableValidation()
+const validationCard = new FormValidator(configValidity, popupNewCard)
+validationCard.enableValidation()
 
 const openPopup = (popup) => {
     popup.classList.add('popup_opened');

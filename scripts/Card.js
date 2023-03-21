@@ -5,7 +5,7 @@ export class Card {
         this._templateSelector = templateSelector;
         this._handleZoom = handleZoom;
     }
-    _getTemplate() {                          //забрали разметку
+    _getTemplate() {                          //pick up markap
         const cardElement = document
             .querySelector('#element')
             .content
@@ -42,7 +42,7 @@ export class Card {
         this._cardElementImage.addEventListener('click', () =>
             this._handleZoom({
                 link: this._link,
-                name: this._name
+                caption: this._name
             })
         );
 
@@ -50,4 +50,4 @@ export class Card {
         this._cardDeleteBtn.addEventListener('click', () => this._handleDelete())
     }
 
-} //ntcn
+} 

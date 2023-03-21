@@ -34,4 +34,4 @@ const configValidity = {
     errorClass: 'popup__msg-error_visible'
 };
 
-export { initialCards, configValidity }
+export {initialCards, configValidity};

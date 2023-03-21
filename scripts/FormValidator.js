@@ -1,77 +1,78 @@
-import { configValidity } from './utils.js'
-import { Card } from './Card.js'
+// import { configValidity } from './utils.js'
+// import { Card } from './Card.js'
 
-export class FormValidator { 
+export class FormValidator {
+    constructor(data, form) {
+        this._data = data;
+        this._formSelector = data.formSelector;
+        this._inputSelector = data.inputSelector;
+        this._submitButtonSelector = data.submitButtonSelector;
+        this._inactiveButtonClass = data.inactiveButtonClass;
+        this._inputErrorClass = data.inputErrorClass;
+        this._errorClass = data.errorClass;
+        this._form = form;
+        this._inputList = Array.from(form.querySelectorAll(this._inputSelector));
+        this._buttonElement = form.querySelector(this._submitButtonSelector);
+    }
 
-    
+    enableValidation() {
+        this._setEventListeners();
+    };
+
+    _showInputError = (inputElement, errorMessage) => {
+        this._errorElement = this._form.querySelector(`.${inputElement.id}-error`);
+        this._errorElement.classList.add(this._inputErrorClass);
+        this._errorElement.textContent = errorMessage;
+        this._errorElement.classList.add(this._errorClass);
+    };
+
+    _hideInputError = (inputElement) => {
+        this._errorElement = this._form.querySelector(`.${inputElement.id}-error`);
+        this._errorElement.classList.remove(this._inputErrorClass);  // inputElement.classList.remove(this._inputErrorClass);
+        this._errorElement.textContent = '';
+        this._errorElement.classList.remove(this._errorClass);
+    };
+
+    _checkInputValidity = (inputElement) => {
+        if (!inputElement.validity.valid) {
+            this._showInputError(inputElement, inputElement.validationMessage);
+        } else {
+            this._hideInputError(inputElement);
+        }
+    };
+
+    _hasInvalidInput = () => {
+        return this._inputList.some((input) => {
+            return !input.validity.valid;
+        });
+    };
+
+    _toggleButtonState = () => {
+        if (this._hasInvalidInput(this._inputList)) {
+            this._buttonElement.classList.add(this._inactiveButtonClass);
+            this._buttonElement.setAttribute('disabled', true);
+        } else {
+            this._buttonElement.classList.remove(this._inactiveButtonClass);
+            this._buttonElement.removeAttribute('disabled', true);
+        }
+    };
+
+    _setEventListeners = () => {
+        this._inputList.forEach((inputElement) => {
+            this._checkInputValidity(inputElement);
+            this._toggleButtonState();
+            inputElement.setAttribute('required', true);
+            inputElement.addEventListener('input', () => {
+                this._checkInputValidity(inputElement);
+                this._toggleButtonState();
+            })
+        })
+        this._form.addEventListener('reset', () => {                   // ждем события 'reset' из файла index str. 143
+            setTimeout(() => {                                          //таймаут на машинный такт
+                this._toggleButtonState(), 0
+            })
+        })
+    }
 }
 
 
-
-const showInputError = (config, formElement, inputElement, errorMessage) => {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    errorElement.classList.add(config.inputErrorClass);
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add(config.errorClass);
-};
-
-const hideInputError = (config, formElement, inputElement) => {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove(config.inputErrorClass);
-    errorElement.classList.remove(config.errorClass);
-    errorElement.textContent = '';
-};
-
-const checkInputValidity = (config, formElement, inputElement) => {
-    if (!inputElement.validity.valid) {
-        showInputError(config, formElement, inputElement, inputElement.validationMessage);
-    } else {
-        hideInputError(config, formElement, inputElement);
-    }
-};
-
-const hasInvalidInput = (inputList) => {
-    return inputList.some((input) => {
-        return !input.validity.valid;
-    });
-};
-
-const toggleButtonState = (config, inputList, buttonElement) => {
-    if (hasInvalidInput(inputList)) {
-        buttonElement.classList.add(config.inactiveButtonClass);
-        buttonElement.setAttribute('disabled', true);
-    } else {
-        buttonElement.classList.remove(config.inactiveButtonClass);
-        buttonElement.removeAttribute('disabled', true);
-    }
-};
-
-const setEventListeners = (config, formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
-    const buttonElement = formElement.querySelector(config.submitButtonSelector);
-
-    inputList.forEach((inputElement) => {
-        checkInputValidity(config, formElement, inputElement);
-        toggleButtonState(config, inputList, buttonElement);
-        inputElement.setAttribute('required', true);
-        inputElement.addEventListener('input', function () {
-            checkInputValidity(config, formElement, inputElement);
-            toggleButtonState(config, inputList, buttonElement);
-        })
-    })
-    formElement.addEventListener('reset', () => {                   // ждем события 'reset' из файла index str. 143
-        setTimeout(() => {                                          //таймаут на машинный такт
-            toggleButtonState(config, inputList, buttonElement), 0
-        })
-    })
-};
-
-function enableValidation(config){
-    const formList = Array.from(document.querySelectorAll(config.formSelector));
-    formList.forEach((formElement) => {
-        setEventListeners(config, formElement);
-    })
-};
-
-//const config = configValidity;
-enableValidation(configValidity); 
