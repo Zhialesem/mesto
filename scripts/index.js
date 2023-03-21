@@ -1,6 +1,6 @@
-import { initialCards } from './utils.js';
+import { initialCards, configValidity } from './utils.js';
 import { Card } from './Card.js';
-import { configValidity } from './utils.js';
+//import { configValidity } from './utils.js';
 import { FormValidator } from './FormValidator.js';
 
 const fieldProfileName = document.querySelector('.profile__name');
@@ -39,7 +39,6 @@ editButton.addEventListener('click', (evt) => {
     fieldPopupInputName.value = fieldProfileName.textContent;
     fieldPopupInputJob.value = fieldProfileJob.textContent;
 });
-
 
 //open popup for adding a new card
 addButton.addEventListener('click', () => {
@@ -80,8 +79,7 @@ popupEditProfile.addEventListener('submit', (evt) => {
     closePopup(popupEditProfile);
 });
 
-
-/*elementWrapper.addEventListener('click', (evt) => {
+/*elementWrapper.addEventListener('click', (evt) => { не хочу убирать
     if (evt.target.classList.contains('element__btn-del')) {
         handleDelete(evt);
     } else if (evt.target.classList.contains('element__btn-like')) {
@@ -91,8 +89,6 @@ popupEditProfile.addEventListener('submit', (evt) => {
     }
 });
 */
-
-
 
 //deleting a card
 const handleDelete = (evt) => {
@@ -104,32 +100,10 @@ const handleLike = (evt) => {
     evt.target.classList.toggle('element__btn-like_active');
 };
 
-// //preparing a new card
-// const getElement = (caption, link) => {
-//     const newElement = template.content.cloneNode(true);
-//     const newElementCaption = newElement.querySelector('.element__caption');
-//     newElementCaption.textContent = caption;
-//     const newElementImage = newElement.querySelector('.element__img');
-//     newElementImage.src = link;
-//     newElementImage.alt = caption;
-//     const cardDeleteBtn = newElement.querySelector('.element__btn-del');
-//     cardDeleteBtn.addEventListener('click', (evt) => {
-//         handleDelete(evt)
-//     });
-//     const cardLikeBtn = newElement.querySelector('.element__btn-like');
-//     cardLikeBtn.addEventListener('click', (evt) => {
-//         handleLike(evt)
-//     });
-//     newElementImage.addEventListener('click', () => handleZoom(caption, link));
-//     return newElement;
-// };
-
-
 const getElement = (item) => {
     const card = new Card(item, '#element', handleZoom)
     return card.generateCard();
 }
-
 
 const renderItem = (card) => {
     elementWrapper.prepend(getElement(card));                                           //added card

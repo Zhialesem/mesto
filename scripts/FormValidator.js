@@ -1,6 +1,3 @@
-// import { configValidity } from './utils.js'
-// import { Card } from './Card.js'
-
 export class FormValidator {
     constructor(data, form) {
         this._data = data;
@@ -14,10 +11,6 @@ export class FormValidator {
         this._inputList = Array.from(form.querySelectorAll(this._inputSelector));
         this._buttonElement = form.querySelector(this._submitButtonSelector);
     }
-
-    enableValidation() {
-        this._setEventListeners();
-    };
 
     _showInputError = (inputElement, errorMessage) => {
         this._errorElement = this._form.querySelector(`.${inputElement.id}-error`);
@@ -73,6 +66,10 @@ export class FormValidator {
             })
         })
     }
+
+    enableValidation() {
+        this._setEventListeners();
+    };
 }
 
 
