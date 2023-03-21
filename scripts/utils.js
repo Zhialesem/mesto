@@ -29,7 +29,9 @@ const configValidity = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_disabled', 
-    inputErrorClass: 'popup__msg-error', 
-    errorClass: 'popup__msg-error_visible'           
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__msg-error',
+    errorClass: 'popup__msg-error_visible'
 };
+
+export { initialCards, configValidity }

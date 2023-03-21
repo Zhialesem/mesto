@@ -49,10 +49,10 @@
 
   <template id="element">
     <figure class="element">
-      <img class="element__img" src="./images/elements/karachaevsk.png" alt="#">
+      <img class="element__img" src="#" alt="#">
       <button aria-label="удалить" class="element__btn-del" type="button" title="удалить"></button>
       <figcaption class="element__title">
-        <h2 class="element__caption">Карачаевск</h2>
+        <h2 class="element__caption"></h2>
         <button aria-label="лайк" class="element__btn-like" type="button" title="лайк"></button>
       </figcaption>
     </figure>
@@ -110,14 +110,15 @@
   <div class="popup popup_zoom-active">
     <div class="popup__zoom-container">
       <button aria-label="Кнопка закрыть" type="button" class="popup__button"></button>
-      <img class="popup__zoom-img" src="./images/elements/karachaevsk.png" alt="#">
+      <img class="popup__zoom-img" src="#" alt="#">
       <p class="popup__zoom-caption">Карачаевск</p>
     </div>
   </div>
 
-  <script src="scripts/initCards.js"></script>
-  <script src="scripts/validate.js"></script>
-  <script src="scripts/index.js"></script>
+  <script type="module" src="scripts/Card.js"></script>
+  <script type="module" src="scripts/utils.js"></script>
+  <script type="module" src="scripts/FormValidator.js"></script>
+  <script type="module" src="scripts/index.js"></script>
 
 </body>
 

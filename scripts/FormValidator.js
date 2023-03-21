@@ -1,3 +1,13 @@
+import { configValidity } from './utils.js'
+import { Card } from './Card.js'
+
+export class FormValidator { 
+
+    
+}
+
+
+
 const showInputError = (config, formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
     errorElement.classList.add(config.inputErrorClass);
