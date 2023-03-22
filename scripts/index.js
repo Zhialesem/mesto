@@ -117,7 +117,7 @@ initialCards.forEach((card) => {
 ///handling submit of new card popup
 addCardForm.addEventListener('submit', (evt) => {
     const card = {
-        caption: evt.target.title.value,
+        name: evt.target.title.value,
         link: evt.target.src.value
     };
     evt.preventDefault();

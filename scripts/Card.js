@@ -7,14 +7,14 @@ export class Card {
     }
     _getTemplate() {                          //pick up markap
         const cardElement = document
-            .querySelector('#element')
+            .querySelector(this._templateSelector)
             .content
             .querySelector('.element')
             .cloneNode(true);
         return cardElement;
     }
 
-    generateCard() {                              //добавили данные в разметку
+    generateCard() {                              //add data to markap
 
         this._element = this._getTemplate()
         this._cardElementImage = this._element.querySelector('.element__img');
