@@ -16,10 +16,10 @@
   position: relative;
 }
 
-/*.popup__input:focus {
+/* .popup__input:focus {
   border-bottom-color: #007DFF;
 }
-*/
+
 
 .popup__input:invalid {
   border-bottom: 1px solid red;
@@ -27,4 +27,4 @@
 
 .popup__input:valid {
   background-color: #Fff;
-}
+} */

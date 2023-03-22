@@ -14,14 +14,14 @@ export class FormValidator {
 
     _showInputError = (inputElement, errorMessage) => {
         this._errorElement = this._form.querySelector(`.${inputElement.id}-error`);
-        this._errorElement.classList.add(this._inputErrorClass);
+        inputElement.classList.add(this._inputErrorClass);
         this._errorElement.textContent = errorMessage;
         this._errorElement.classList.add(this._errorClass);
     };
 
     _hideInputError = (inputElement) => {
         this._errorElement = this._form.querySelector(`.${inputElement.id}-error`);
-        this._errorElement.classList.remove(this._inputErrorClass);  // inputElement.classList.remove(this._inputErrorClass);
+        inputElement.classList.remove(this._inputErrorClass);  // inputElement.classList.remove(this._inputErrorClass);
         this._errorElement.textContent = '';
         this._errorElement.classList.remove(this._errorClass);
     };
