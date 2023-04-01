@@ -1,7 +1,9 @@
-import { initialCards, configValidity } from './utils.js';
-import { Card } from './Card.js';
+import { initialCards, configValidity } from '../utils/constants.js';
+import { Card } from '../components/Card.js';
 //import { configValidity } from './utils.js';
-import { FormValidator } from './FormValidator.js';
+
+import FormValidator from '../components/FormValidator.js';
+import Section from '../components/Section.js';
 
 const fieldProfileName = document.querySelector('.profile__name');
 const fieldProfileJob = document.querySelector('.profile__job');
@@ -23,15 +25,15 @@ validationProfile.enableValidation()
 const validationCard = new FormValidator(configValidity, popupNewCard)
 validationCard.enableValidation()
 
-const openPopup = (popup) => {
-    popup.classList.add('popup_opened');
-    document.addEventListener('keydown', closeByEscape);
-};
+// const openPopup = (popup) => {
+//     popup.classList.add('popup_opened');
+//     document.addEventListener('keydown', handleEscClose);
+// };
 
-const closePopup = (popup) => {
-    popup.classList.remove('popup_opened');
-    document.removeEventListener('keydown', closeByEscape);
-};
+// const closePopup = (popup) => {
+//     popup.classList.remove('popup_opened');
+//     document.removeEventListener('keydown', handleEscClose);
+// };
 
 //open profile edit popup
 editButton.addEventListener('click', (evt) => {
@@ -64,7 +66,7 @@ popups.forEach((popup) => {
 });
 
 //close the popup when pressing on the Esc key
-function closeByEscape(evt) {
+function handleEscClose(evt) {
     if (evt.key === 'Escape') {
         const openedPopup = document.querySelector('.popup_opened')
         closePopup(openedPopup);
