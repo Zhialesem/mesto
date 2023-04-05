@@ -1,9 +1,13 @@
 import { initialCards, configValidity } from '../utils/constants.js';
-import { Card } from '../components/Card.js';
-//import { configValidity } from './utils.js';
-
+import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
+import UserInfo from '../components/UserInfo.js';
+
+import PopupWithForm from '../components/PopupWithForm.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import Popup from '../components/Popup.js';
+
 
 const fieldProfileName = document.querySelector('.profile__name');
 const fieldProfileJob = document.querySelector('.profile__job');
@@ -11,7 +15,7 @@ const fieldPopupInputName = document.querySelector('.popup__input_type_name');
 const fieldPopupInputJob = document.querySelector('.popup__input_type_job');
 const popupEditProfile = document.querySelector(".popup-profile");
 const editButton = document.querySelector(".profile__btn-edit");
-const popupNewCard = document.querySelector(".popup-new-item");
+const NewCardPopup = document.querySelector(".popup-new-item");
 const addButton = document.querySelector(".profile__btn-add");
 const popups = document.querySelectorAll('.popup');
 const popupZoom = document.querySelector(".popup_zoom-active");
@@ -19,111 +23,92 @@ const fieldPopupZoomImg = popupZoom.querySelector('.popup__zoom-img');
 const fieldPopupZoomCaption = popupZoom.querySelector('.popup__zoom-caption');
 const addCardForm = document.forms['add-form'];                                //https://developer.mozilla.org/ru/docs/Web/API/Document/forms
 const elementWrapper = document.querySelector('.elements');                    //card container
+const cardNameInput = document.querySelector('.popup__input_type_name');
+const cardLinkInput = document.querySelector('.popup__input_type_src');
+
 
 const validationProfile = new FormValidator(configValidity, popupEditProfile)
 validationProfile.enableValidation()
-const validationCard = new FormValidator(configValidity, popupNewCard)
+const validationCard = new FormValidator(configValidity, NewCardPopup)
 validationCard.enableValidation()
 
-// const openPopup = (popup) => {
-//     popup.classList.add('popup_opened');
-//     document.addEventListener('keydown', handleEscClose);
-// };
 
-// const closePopup = (popup) => {
-//     popup.classList.remove('popup_opened');
-//     document.removeEventListener('keydown', handleEscClose);
-// };
+const popupWithImage = new PopupWithImage(popupZoom)
 
-//open profile edit popup
-editButton.addEventListener('click', (evt) => {
-    openPopup(popupEditProfile);
-    fieldPopupInputName.value = fieldProfileName.textContent;
-    fieldPopupInputJob.value = fieldProfileJob.textContent;
-});
+//form profile edit popup                          1
+const userInfo = new UserInfo({
+    selectorName: fieldProfileName,
+    selectorJob: fieldProfileJob
+})
 
-//open popup for adding a new card
-addButton.addEventListener('click', () => {
-    openPopup(popupNewCard);
-});
-
-//zoom
-const handleZoom = (data) => {
-    fieldPopupZoomImg.src = data.link;
-    fieldPopupZoomCaption.textContent = data.caption;
-    fieldPopupZoomImg.alt = data.caption;
-    openPopup(popupZoom);
-};
-
-//close the popup when clicking on the cross or overlay
-popups.forEach((popup) => {
-    popup.addEventListener('mousedown', (evt) => {
-        if (evt.target.classList.contains('popup_opened') ||
-            (evt.target.classList.contains('popup__btn-close'))) {
-            closePopup(popup);
-        }
-    })
-});
-
-//close the popup when pressing on the Esc key
-function handleEscClose(evt) {
-    if (evt.key === 'Escape') {
-        const openedPopup = document.querySelector('.popup_opened')
-        closePopup(openedPopup);
-    }
-};
-
-// Edit profile submit handler
-popupEditProfile.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-    fieldProfileName.textContent = evt.target.name.value;
-    fieldProfileJob.textContent = evt.target.job.value;
-    closePopup(popupEditProfile);
-});
-
-/*elementWrapper.addEventListener('click', (evt) => { не хочу убирать
-    if (evt.target.classList.contains('element__btn-del')) {
-        handleDelete(evt);
-    } else if (evt.target.classList.contains('element__btn-like')) {
-        handleLike(evt);
-    } else if (evt.target.classList.contains('element__img')) {
-        handleZoom(evt);
-    }
-});
-*/
-
-//deleting a card
-const handleDelete = (evt) => {
-    evt.target.closest('.element').remove();
-};
-
-//likes handler
-const handleLike = (evt) => {
-    evt.target.classList.toggle('element__btn-like_active');
-};
-
+//create new card                                  2
 const getElement = (item) => {
-    const card = new Card(item, '#element', handleZoom)
+    const card = new Card(item, '#element', () => {
+        popupWithImage.open(item)
+    })
     return card.generateCard();
 }
 
-const renderItem = (card) => {
-    elementWrapper.prepend(getElement(card));                                           //added card
-};
-
-//preparing a new card "from box"
-initialCards.forEach((card) => {
-    elementWrapper.append(getElement(card));
+//open popup for adding a new card                            4
+const popupNewCard = new PopupWithForm(NewCardPopup, {
+    handleFormSubmit: ({ mesto, link }) => {
+        cardSecion.addItem(getElement({
+            name: mesto,
+            link: link,
+            alt: mesto
+        }));
+    }
 });
 
-///handling submit of new card popup
-addCardForm.addEventListener('submit', (evt) => {
-    const card = {
-        name: evt.target.title.value,
-        link: evt.target.src.value
-    };
-    evt.preventDefault();
-    evt.target.reset();                                                                       //https://developer.mozilla.org/ru/docs/Web/API/HTMLFormElement/reset
-    renderItem(card, elementWrapper);
-    closePopup(popupNewCard);
+
+//Create profile popup                                            3
+const popupProfile = new PopupWithForm(popupEditProfile, {
+    handleFormSubmit: (element) => {
+        userInfo.setUserInfo(element)
+    }
 });
+
+// Open profile popup
+editButton.addEventListener('click', () => {
+    popupProfile.open()
+    popupProfile.takeInputValues(userInfo.getUserInfo());
+    // validationProfile.resetInputs();
+    // validationProfile.resetButton();
+});
+
+//open popup add card
+addButton.addEventListener('click', () => {
+    popupNewCard.open()
+    // validationCard.resetInput();
+    // validationCard.resetButton();
+})
+
+//New Card container
+const cardSecion = new Section(
+    {
+        renderer: (card) => { cardSecion.addItem(getElement(card)) }
+    }, '.elements');
+
+cardSecion.renderItems(initialCards)
+
+popupWithImage.setEventListeners()
+popupProfile.setEventListeners()
+popupNewCard.setEventListeners()
+
+
+// //preparing a new card "from box"
+// initialCards.forEach((card) => {
+//     elementWrapper.append(getElement(card));
+// });
+
+// ///handling submit of new card popup
+// addCardForm.addEventListener('submit', (evt) => {
+//     const card = {
+//         name: evt.target.title.value,
+//         link: evt.target.src.value
+//     };
+//     evt.preventDefault();
+//     evt.target.reset();                                                                       //https://developer.mozilla.org/ru/docs/Web/API/HTMLFormElement/reset
+//     renderItem(card, elementWrapper);
+//     closePopup(popupNewCard);
+// });

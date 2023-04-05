@@ -1,9 +1,9 @@
-export class Card {
-    constructor(data, templateSelector, handleZoom) {
+export default class Card {
+    constructor(data, templateSelector, handleCardClick) {
         this._link = data.link;
         this._name = data.name;
         this._templateSelector = templateSelector;
-        this._handleZoom = handleZoom;
+        this._handleCardClick = handleCardClick;
     }
     _getTemplate() {                          //pick up markap
         const cardElement = document
@@ -40,7 +40,7 @@ export class Card {
 
     _setEventListeners() {
         this._cardElementImage.addEventListener('click', () =>
-            this._handleZoom({
+            this._handleCardClick({
                 link: this._link,
                 caption: this._name
             })
