@@ -38,8 +38,8 @@ const popupWithImage = new PopupWithImage(popupZoom)
 
 //form profile edit popup                          
 const userInfo = new UserInfo({
-    selectorName: fieldProfileName,
-    selectorJob: fieldProfileJob
+    profileName: fieldProfileName,
+    profileJob: fieldProfileJob
 })
 
 //create new card                                 
@@ -72,15 +72,11 @@ const popupProfile = new PopupWithForm(popupEditProfile, {
 editButton.addEventListener('click', () => {
     popupProfile.open()
     popupProfile.takeInputValues(userInfo.getUserInfo());
-    // validationProfile.resetInputs();
-    // validationProfile.resetButton();
-});
+   });
 
 //open popup add card
 addButton.addEventListener('click', () => {
     popupNewCard.open()
-    // validationCard.resetInput();
-    // validationCard.resetButton();
 })
 
 //New Card container
