@@ -15,4 +15,37 @@ const configValidity = {
     errorClass: 'popup__msg-error_visible'
 };
 
+// Получаем элемент иконки редактирования профиля
+const profileEditingIcon = document.querySelector('.profile__avatar-edit');
+// Получаем элемент иконки добавления места
+const iconAddCard = document.querySelector('.profile__btn-add');
+// Получаем popup редактирования профиля
+const popupProfile = document.querySelector('.popup-profile');
+// Получаем форму редактирования профиля
+const formProfile = popupProfile.querySelector('.popup__form');
+// Получаем popup добавления карточки
+const popupCards = document.querySelector('.popup-new-item');
+// Получаем форму popup добавления карточки
+const formCards = popupCards.querySelector('.popup__form');
+// Получаем input имени
+const nameInput = popupProfile.querySelector('#name-input');
+// Получаем input описания
+const descriptionInput = popupProfile.querySelector('#about-input');
+// Получаем popup редактирования аватара
+const popupAvatarEdit = document.querySelector('.popup-avatar');
+// Получаем форму редактирования аватара
+const popupAvatarEditForm = popupAvatarEdit.querySelector('.popup__form');
+// Получаем иконку редактирования аватара
+const iconAvatarEdit = document.querySelector('.profile__avatar-edit');
+
+
+
+export {
+  profileEditingIcon, iconAddCard,
+  popupProfile, popupCards,
+  formProfile, nameInput,
+  descriptionInput, formCards,
+  popupAvatarEditForm, iconAvatarEdit
+};
+
 export { apiConnector, configValidity };
