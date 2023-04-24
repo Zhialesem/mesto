@@ -1,29 +1,10 @@
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+const apiConnector = {
+    link: 'https://mesto.nomoreparties.co/v1/cohort-64/',
+    headers: {
+        authorization: '0db668de-4a82-44c2-a4e2-1bc6a294d6b6',
+        'Content-Type': 'application/json'
     }
-];
+}
 
 const configValidity = {
     formSelector: '.popup__form',
@@ -34,4 +15,4 @@ const configValidity = {
     errorClass: 'popup__msg-error_visible'
 };
 
-export {initialCards, configValidity};
+export { apiConnector, configValidity };

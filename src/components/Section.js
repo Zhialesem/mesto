@@ -4,13 +4,17 @@ export default class Section {// вставляет готовую размет�
         this._container = document.querySelector(containerSelector);
     }
 
-    renderItems(items) {
+    renderItems(items, user) {
         items.forEach(item => {
-            this._renderer(item);
-        });
+            this._renderer(item, user);
+        })
     }
 
     addItem(element) {
+        this._container.append(element);
+    }
+
+    addInitalCards(element) {
         this._container.prepend(element);
     }
 }
