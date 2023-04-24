@@ -2,11 +2,10 @@
     box-sizing: border-box;
     display: block;
     border-radius: 050%;
-    max-width: 120px;
+    width: 120px;
     margin: 0 auto;
     height: 120px;
-    /* width: 120px; */
-    object-fit: cover;
+        object-fit: cover;
 }
 
 @media (max-width: 780px) {
