@@ -22,7 +22,7 @@ export default class FormValidator {
 
   resetValidate() {
     this._inputList.forEach((inputItem) => { this._hideValidationError(inputItem); })
-    this._toggleButtonState();
+    this._disableSubmitButton();
   }
 
   _checkInputValidity(inputItem) {
